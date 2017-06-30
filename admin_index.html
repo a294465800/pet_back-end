@@ -23,9 +23,20 @@
 <!--/导航-->
 
 <!--主体-->
-<section class="container-fluid admin-body clearfix">
-    <div class="pull-left admin-navigation"></div>
-    <div class="pull-right"></div>
+<section class="container-fluid admin-body">
+    <div class="admin-navigation">
+        <ul class="admin-navigation-ul panel-group" id="admin-navigation-ul">
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" href="#order-list">订单管理</a>
+                <ul class="admin-navigation-ul-ul" id="order-list">
+                    <li>预约信息</li>
+                    <li>订单处理</li>
+                    <li>团购券核销</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="admin-content"></div>
 </section>
 <!--/主体-->
 
@@ -124,5 +135,10 @@
 <!--$('#collapseOne').collapse('hide')-->
 <!--});-->
 <!--</script>-->
+<script>
+	$(function(){
+		$('#order-list').collapse('toggle')
+    })
+</script>
 </body>
 </html>
