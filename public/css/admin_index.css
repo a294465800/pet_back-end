@@ -7,6 +7,11 @@ body {
 .admin-header {
     position: relative;
     background-color: #fff;
+    width: 100%;
+}
+
+.admin-header .container-fluid {
+    padding-right: 0!important;
 }
 
 .admin-header-logo {
@@ -27,6 +32,9 @@ body {
     margin-left: 180px;
     width: auto;
     padding-top: 10px;
+    padding-left: 15px; padding-right: 15px;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .admin-header-user {
@@ -46,11 +54,14 @@ body {
 
 .admin-body {
     height: auto !important;
+    position: relative;
+    padding: 0;
 }
 
 /*导航*/
 .admin-navigation {
-    width: 180px;
+    width: 195px;
+    padding-top: 40px;
 }
 
 .admin-navigation-ul {
@@ -59,8 +70,69 @@ body {
     padding: 0;
 }
 
+.admin-navigation-li {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.active .admin-navigation-title {
+    color: #ff963d;
+}
+
+.admin-navigation-title {
+    font: normal 20px "微软雅黑";
+    color: #fff;
+}
+
+.admin-navigation-title:hover, .admin-navigation-title:visited, .admin-navigation-title:active, .admin-navigation-title:focus,
+.admin-navigation-a-btn:hover, .admin-navigation-a-btn:visited, .admin-navigation-a-btn:active, .admin-navigation-a-btn:focus {
+    text-decoration: none;
+    outline: none;
+}
+.admin-navigation-title:hover,.admin-navigation-a-btn:hover,.admin-navigation-a-btn:visited {
+    color: #ff963d;
+}
+
+.admin-navigation-ul-ul {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.admin-navigation-function {
+    color: #ff963d;
+    font: normal 16px "微软雅黑";
+    padding: 5px;
+    padding-left: 80px;
+    text-align: left;
+    border: 1px solid transparent;
+}
+
+.admin-navigation-function:hover {
+    background-color: #fff;
+    border: 1px solid #ff963d;
+}
+.admin-navigation-ul-ul .active {
+    background-color: #fff;
+    border: 1px solid #ff963d;
+}
+
+.admin-navigation-a-btn {
+    color: #ff963d;
+}
+
 /*内容*/
 .admin-content {
-    margin-left: 180px;
-    min-height: 760px;
+    margin-left: 195px;
+    margin-right: 0;
+    min-height: 850px;
+    background-color: #fff;
+}
+
+
+/*底部*/
+.footer {
+    color: #999;
+    font: normal 12px "微软雅黑";
+    padding-top: 20px;
 }
