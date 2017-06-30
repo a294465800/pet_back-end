@@ -1,0 +1,39 @@
+/*导航*/
+
+.admin-header {
+    position: relative;
+    background-color: #fff;
+}
+
+.admin-header-logo {
+    height: 80px;
+    width: 180px;
+    font: normal 40px/80px "微软雅黑";
+    text-align: center;
+    color: #000;
+    float: left;
+}
+
+.admin-header-logo:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.admin-header-function {
+    margin-left: 180px;
+    width: auto;
+    padding-top: 10px;
+}
+
+.admin-header-user {
+    color: #ff963d;
+}
+
+.admin-header-a a {
+    margin-left: 30px;
+    color: #ff963d;
+}
+
+.admin-header-a a:hover {
+    text-decoration: none;
+}
