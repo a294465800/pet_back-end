@@ -178,23 +178,10 @@
 	//	$(function(){
 	//		$('#order-list').collapse('toggle')
 	//    })
-	$(function () {
-		var $admin_navigation_li = $('.admin-navigation-li')
-		var $admin_navigation_ul_ul = $('.admin-navigation-ul-ul')
-		$admin_navigation_li.on('click', function () {
-			$admin_navigation_li.removeClass('active')
-			$admin_navigation_ul_ul.removeClass('in')
-			$(this).addClass('active')
-		})
-
-		//阻止冒泡
-		var $admin_navigation_function = $('.admin-navigation-function')
-		$admin_navigation_function.on('click', function (event) {
-			$admin_navigation_function.removeClass('active')
-			event.stopPropagation()
-			$(this).addClass('active')
-		})
-	})
 </script>
+
+<!--admin的主js-->
+<script src="public/js/admin_index_action.js"></script>
+<!--/admin的主js-->
 </body>
 </html>

@@ -11,7 +11,7 @@ body {
 }
 
 .admin-header .container-fluid {
-    padding-right: 0!important;
+    padding-right: 0 !important;
 }
 
 .admin-header-logo {
@@ -32,7 +32,8 @@ body {
     margin-left: 180px;
     width: auto;
     padding-top: 10px;
-    padding-left: 15px; padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
@@ -89,7 +90,8 @@ body {
     text-decoration: none;
     outline: none;
 }
-.admin-navigation-title:hover,.admin-navigation-a-btn:hover,.admin-navigation-a-btn:visited {
+
+.admin-navigation-title:hover, .admin-navigation-a-btn:hover, .admin-navigation-a-btn:visited {
     color: #ff963d;
 }
 
@@ -100,25 +102,28 @@ body {
 }
 
 .admin-navigation-function {
-    color: #ff963d;
-    font: normal 16px "微软雅黑";
-    padding: 5px;
-    padding-left: 80px;
-    text-align: left;
     border: 1px solid transparent;
 }
 
 .admin-navigation-function:hover {
     background-color: #fff;
     border: 1px solid #ff963d;
+    cursor: pointer;
 }
+
 .admin-navigation-ul-ul .active {
     background-color: #fff;
     border: 1px solid #ff963d;
 }
 
 .admin-navigation-a-btn {
+    display: inline-block;
     color: #ff963d;
+    font: normal 16px "微软雅黑";
+    padding: 5px;
+    padding-left: 80px;
+    text-align: left;
+    width: 100%;
 }
 
 /*内容*/
@@ -128,7 +133,6 @@ body {
     min-height: 850px;
     background-color: #fff;
 }
-
 
 /*底部*/
 .footer {
