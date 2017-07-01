@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宠物镇后台</title>
+    <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/admin_index.css">
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
+    <!--预留存放单页面css-->
+    <link rel="stylesheet" href="../public/css/admin_shopInfo.css">
+    <link rel="stylesheet" href="../public/build/webuploader/webuploader.css">
+    <!--/预留存放单页面css-->
+    <script>
+		$(function () {
+			var $shop_list = $('#shop-list')
+			$shop_list.addClass('in')
+			$shop_list.parent('.admin-navigation-li').addClass('active')
+			$shop_list.find('.admin-navigation-function').addClass('active')
+		})
+    </script>
+</head>
+<body>
+<!--导航-->
+<header class="admin-header clearfix">
+    <div class="container-fluid">
+        <a class="admin-header-logo">宠物镇</a>
+        <div class="admin-header-function clearfix">
+            <div class="admin-header-function-common clearfix">
+                <p class="pull-left">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
+                <div class="admin-header-a clearfix pull-right">
+                    <a href="" class="pull-right">退出登录</a>
+                    <a href="" class="pull-right">宠物镇首页</a>
+                </div>
+            </div>
+
+            <!--预留位置，填充页面标题信息-->
+            <div class="admin-header-function-title clearfix">
+                <p class="admin-header-function-title-p">当月营业额：<span
+                        class="admin-header-function-title-span">￥25645</span></p>
+                <p class="admin-header-function-title-p">总积分：<span class="admin-header-function-title-span">26152</span>
+                </p>
+            </div>
+            <!--/预留位置，填充页面标题信息-->
+        </div>
+    </div>
+</header>
+<!--/导航-->
+
+<!--主体-->
+<section class="container-fluid admin-body">
+
+    <!--导航菜单，所有页面相同-->
+    <div class="admin-navigation pull-left">
+        <ul class="admin-navigation-ul panel-group" id="admin-navigation-ul">
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
+                   href="#order-list">订单管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="order-list">
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">预约信息</a></li>
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">订单处理</a></li>
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">团购券核销</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
+                   href="#user-list">用户管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="user-list">
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">发布动态</a></li>
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">回复评论</a></li>
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">互动统计</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
+                   href="#commodity-list">商品管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="commodity-list">
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">发布新商品</a></li>
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">商品查询</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
+                   href="#shop-list">店铺管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="shop-list">
+                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">信息修改</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--/导航菜单，所有页面相同-->
+
+    <!--内容，所有页面不同-->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!--从这里开始不同-->
+
+            <!--店铺信息表单-->
+            <div class="admin-shopInfo-form">
+                <form action="">
+                    <div class="admin-shopInfo-input-type">
+                        <div class="admin-shopInfo-type">
+                            <img src="../public/images/admin/shopInfo/company.png" alt="店铺icon"
+                                 class="admin-shopInfo-form-icon">
+                            <span>店铺名称</span>
+                        </div>
+                        <label for="shop_name">
+                            <input id="shop_name" name="shop_name" type="text" placeholder="这里输入店铺名"
+                                   class="admin-shopInfo-input">
+                        </label>
+                    </div>
+                    <div class="admin-shopInfo-input-type">
+                        <div class="admin-shopInfo-type">
+                            <img src="../public/images/admin/shopInfo/company.png" alt="地址icon"
+                                 class="admin-shopInfo-form-icon">
+                            <span>店铺地址</span>
+                        </div>
+                        <label for="shop_address">
+                            <input id="shop_address" name="shop_address" type="text" placeholder="这里输入店铺地址"
+                                   class="admin-shopInfo-input">
+                        </label>
+                    </div>
+                    <div class="admin-shopInfo-input-type">
+                        <div class="admin-shopInfo-type">
+                            <img src="../public/images/admin/shopInfo/company.png" alt="营业时间icon"
+                                 class="admin-shopInfo-form-icon">
+                            <span>营业时间</span>
+                        </div>
+                        <label for="shop_runtime">
+                            <input id="shop_runtime" name="shop_runtime" type="text" placeholder="这里输入店铺营业时间"
+                                   class="admin-shopInfo-input">
+                        </label>
+                    </div>
+                    <div class="admin-shopInfo-input-type">
+                        <div class="admin-shopInfo-type">
+                            <img src="../public/images/admin/shopInfo/company.png" alt="联系电话icon"
+                                 class="admin-shopInfo-form-icon">
+                            <span>联系电话</span>
+                        </div>
+                        <label for="shop_tel1">
+                            <input id="shop_tel1" type="text" placeholder="这里输入店铺联系电话" class="admin-shopInfo-input">
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <!--/店铺信息表单-->
+
+            <!--上传头像-->
+            <div class="admin-shopInfo-avatar-part">
+                <h3>店铺头像</h3>
+                <div id="shop_avatar" class="webuploader-container">
+                    <div class="webuploader-container">
+                        <div id="fileList" class="uploader-list"></div>
+                        <div id="filePicker">选择图片</div>
+                    </div>
+                </div>
+                <!--<img src="" alt="头像预览" class="admin-shopInfo-avatar-pre">-->
+            </div>
+            <!--/上传头像-->
+            <!--/从这里开始不同-->
+        </div>
+    </div>
+    <!--/内容，所有页面不同-->
+</section>
+<!--/主体-->
+
+<!--底部-->
+<footer class="container-fluid footer">Copyright © 2017 Sennki All Rights Reserved</footer>
+<!--/底部-->
+
+<!--bootstrap.js-->
+<script src="../public/build/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!--/bootstrap.js-->
+
+<!--admin的主js-->
+<script src="../public/js/admin_index_action.js"></script>
+<!--/admin的主js-->
+
+<!--预留存放单页面js-->
+<script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+// 初始化Web Uploader
+	    var uploader = WebUploader.create({
+
+		    // 选完文件后，是否自动上传。
+		    auto: false,
+
+		    // swf文件路径
+		    swf: '../public/build/webuploader/Uploader.swf',
+
+		    // 文件接收服务端。
+		    server: 'http://webuploader.duapp.com/server/fileupload.php',
+
+		    // 选择文件的按钮。可选。
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: '#filePicker',
+
+		    // 只允许选择图片文件。
+		    accept: {
+			    title: 'Images',
+			    extensions: 'gif,jpg,jpeg,bmp,png',
+			    mimeTypes: 'image/*'
+		    }
+	    });
+
+	    // 当有文件添加进来的时候
+        var $list = $('#fileList')
+	    uploader.on( 'fileQueued', function( file ) {
+	    	console.log(1)
+		    var $li = $(
+				    '<div id="' + file.id + '" class="file-item thumbnail">' +
+				    '<img>' +
+				    '<div class="info">' + file.name + '</div>' +
+				    '</div>'
+			    ),
+			    $img = $li.find('img');
+
+
+		    // $list为容器jQuery实例
+		    $list.append( $li );
+
+		    // 创建缩略图
+		    // 如果为非图片文件，可以不用调用此方法。
+		    // thumbnailWidth x thumbnailHeight 为 100 x 100
+		    var thumbnailWidth = 300,thumbnailHeight = 300
+		    uploader.makeThumb( file, function( error, src ) {
+			    if ( error ) {
+				    $img.replaceWith('<span>不能预览</span>');
+				    return;
+			    }
+
+			    $img.attr( 'src', src );
+		    }, thumbnailWidth, thumbnailHeight );
+	    });
+    })
+</script>
+<!--/预留存放单页面js-->
+</body>
+</html>

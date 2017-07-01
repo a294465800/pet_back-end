@@ -38,6 +38,15 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
+.admin-header-function-common {
+    display: inline-block;
+    width: 100%;
+}
+
+.admin-header-function-title {
+    width: 100%;
+}
+
 .admin-header-user {
     color: #ff963d;
 }

@@ -14,11 +14,17 @@
     <div class="container-fluid">
         <a class="admin-header-logo">宠物镇</a>
         <div class="admin-header-function clearfix">
-            <p class="pull-left">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
-            <div class="admin-header-a">
-                <a href="" class="pull-right">退出登录</a>
-                <a href="" class="pull-right">宠物镇首页</a>
+            <div class="admin-header-function-common clearfix">
+                <p class="pull-left">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
+                <div class="admin-header-a clearfix pull-right">
+                    <a href="" class="pull-right">退出登录</a>
+                    <a href="" class="pull-right">宠物镇首页</a>
+                </div>
             </div>
+
+            <!--预留位置，填充页面标题信息-->
+            <div class="admin-header-function-title"></div>
+            <!--/预留位置，填充页面标题信息-->
         </div>
     </div>
 </header>
@@ -26,6 +32,8 @@
 
 <!--主体-->
 <section class="container-fluid admin-body">
+
+    <!--导航菜单，所有页面相同-->
     <div class="admin-navigation pull-left">
         <ul class="admin-navigation-ul panel-group" id="admin-navigation-ul">
             <li class="admin-navigation-li">
@@ -58,20 +66,29 @@
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
                    href="#shop-list">店铺管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="shop-list">
-                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">信息修改</a></li>
+                    <li class="admin-navigation-function"><a href="admin/admin_shopInfo.html"
+                                                             class="admin-navigation-a-btn">信息修改</a></li>
                 </ul>
             </li>
         </ul>
     </div>
+    <!--/导航菜单，所有页面相同-->
+
+    <!--内容，所有页面不同-->
     <div class="admin-content">
         <div class="container-fluid">
+
+            <!--从这里开始不同-->
             <div class="jumbotron">
                 <h1>您好，欢迎来到宠物镇后台管理。</h1>
                 <p>备注</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">使用帮助</a></p>
             </div>
+            <!--/从这里开始不同-->
+
         </div>
     </div>
+    <!--/内容，所有页面不同-->
 </section>
 <!--/主体-->
 
@@ -79,101 +96,8 @@
 <footer class="container-fluid footer">Copyright © 2017 Sennki All Rights Reserved</footer>
 <!--/底部-->
 
-<!--<div class="panel-group" id="accordion">-->
-<!--<div class="panel panel-default">-->
-<!--<div class="panel-heading">-->
-<!--<h4 class="panel-title">-->
-<!--<a data-toggle="collapse" data-parent="#accordion"-->
-<!--href="#collapseOne">-->
-<!--点击我进行展开，再次点击我进行折叠。第 1 部分&#45;&#45;hide 方法-->
-<!--</a>-->
-<!--</h4>-->
-<!--</div>-->
-<!--<div id="collapseOne" class="panel-collapse collapse in">-->
-<!--<div class="panel-body">-->
-<!--Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred-->
-<!--nesciunt sapiente ea proident. Ad vegan excepteur butcher vice-->
-<!--lomo.-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="panel panel-success">-->
-<!--<div class="panel-heading">-->
-<!--<h4 class="panel-title">-->
-<!--<a data-toggle="collapse" data-parent="#accordion"-->
-<!--href="#collapseTwo">-->
-<!--点击我进行展开，再次点击我进行折叠。第 2 部分&#45;&#45;show 方法-->
-<!--</a>-->
-<!--</h4>-->
-<!--</div>-->
-<!--<div id="collapseTwo" class="panel-collapse collapse">-->
-<!--<div class="panel-body">-->
-<!--Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred-->
-<!--nesciunt sapiente ea proident. Ad vegan excepteur butcher vice-->
-<!--lomo.-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="panel panel-info">-->
-<!--<div class="panel-heading">-->
-<!--<h4 class="panel-title">-->
-<!--<a data-toggle="collapse" data-parent="#accordion"-->
-<!--href="#collapseThree">-->
-<!--点击我进行展开，再次点击我进行折叠。第 3 部分&#45;&#45;toggle 方法-->
-<!--</a>-->
-<!--</h4>-->
-<!--</div>-->
-<!--<div id="collapseThree" class="panel-collapse collapse">-->
-<!--<div class="panel-body">-->
-<!--Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred-->
-<!--nesciunt sapiente ea proident. Ad vegan excepteur butcher vice-->
-<!--lomo.-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="panel panel-warning">-->
-<!--<div class="panel-heading">-->
-<!--<h4 class="panel-title">-->
-<!--<a data-toggle="collapse" data-parent="#accordion"-->
-<!--href="#collapseFour">-->
-<!--点击我进行展开，再次点击我进行折叠。第 4 部分&#45;&#45;options 方法-->
-<!--</a>-->
-<!--</h4>-->
-<!--</div>-->
-<!--&lt;!&ndash;<div id="collapseFour" class="panel-collapse collapse">&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="panel-body">&ndash;&gt;-->
-<!--&lt;!&ndash;Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred&ndash;&gt;-->
-<!--&lt;!&ndash;nesciunt sapiente ea proident. Ad vegan excepteur butcher vice&ndash;&gt;-->
-<!--&lt;!&ndash;lomo.&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--<div id="collapseFour" class="panel-collapse collapse">-->
-<!--<a href="#collapseFour_1" data-toggle="collapse" data-parent="#collapseFour">点击我开启</a>-->
-<!--<div id="collapseFour_1" class="panel-collapse collapse">-->
-<!--<div class="panel-body">-->
-<!--你好啊-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
+
 <script src="public/build/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<!--<script>-->
-<!--$(function () {-->
-<!--$('#collapseFour').collapse({-->
-<!--toggle: false-->
-<!--})-->
-<!--});-->
-<!--$(function () {-->
-<!--$('#collapseTwo').collapse('show')-->
-<!--});-->
-<!--$(function () {-->
-<!--$('#collapseThree').collapse('toggle')-->
-<!--});-->
-<!--$(function () {-->
-<!--$('#collapseOne').collapse('hide')-->
-<!--});-->
-<!--</script>-->
 <script>
 	//	$(function(){
 	//		$('#order-list').collapse('toggle')
