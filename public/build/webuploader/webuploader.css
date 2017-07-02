@@ -5,12 +5,13 @@
 	position: absolute !important;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px,1px,1px,1px);
+	width:0;
 }
 .webuploader-pick {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	background: #00b7ee;
+	background: #ff963d;
 	padding: 10px 15px;
 	color: #fff;
 	text-align: center;
@@ -18,11 +19,12 @@
 	overflow: hidden;
 }
 .webuploader-pick-hover {
-	background: #00a2d4;
+	background: #e58300;
 }
 
 .webuploader-pick-disable {
 	opacity: 0.6;
 	pointer-events:none;
 }
+
 

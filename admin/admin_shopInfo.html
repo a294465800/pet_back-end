@@ -147,11 +147,12 @@
 
             <!--上传头像-->
             <div class="admin-shopInfo-avatar-part">
-                <h3>店铺头像</h3>
+                <h3 class="admin-shopInfo-avatar-title">店铺头像</h3>
                 <div id="shop_avatar" class="webuploader-container">
-                    <div class="webuploader-container">
-                        <div id="fileList" class="uploader-list"></div>
-                        <div id="filePicker">选择图片</div>
+                    <div class="admin-shopInfo-avatar-part-container">
+                        <div id="avatarPre" class="admin-shopInfo-avatar-pre"></div>
+                        <div id="avatarPicker">选择图片</div>
+                        <div class="admin-shopInfo-avatar-upload" id="avatarUpload">上传头像</div>
                     </div>
                 </div>
                 <!--<img src="" alt="头像预览" class="admin-shopInfo-avatar-pre">-->
@@ -179,61 +180,101 @@
 <!--预留存放单页面js-->
 <script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
 <script>
-    $(function () {
+	$(function () {
 // 初始化Web Uploader
-	    var uploader = WebUploader.create({
+		var uploader = WebUploader.create({
 
-		    // 选完文件后，是否自动上传。
-		    auto: false,
+			// 选完文件后，是否自动上传。
+			auto: false,
 
-		    // swf文件路径
-		    swf: '../public/build/webuploader/Uploader.swf',
+			fileVal: 'avatar',
 
-		    // 文件接收服务端。
-		    server: 'http://webuploader.duapp.com/server/fileupload.php',
+			// swf文件路径
+			swf: '../public/build/webuploader/Uploader.swf',
 
-		    // 选择文件的按钮。可选。
-		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-		    pick: '#filePicker',
+			// 文件接收服务端。
+			server: 'http://webuploader.duapp.com/server/fileupload.php',
 
-		    // 只允许选择图片文件。
-		    accept: {
-			    title: 'Images',
-			    extensions: 'gif,jpg,jpeg,bmp,png',
-			    mimeTypes: 'image/*'
-		    }
-	    });
+			// 选择文件的按钮。可选。
+			// 内部根据当前运行是创建，可能是input元素，也可能是flash.
+			dnd: '#avatarPre',
+			disableGlobalDnd: true,
 
-	    // 当有文件添加进来的时候
-        var $list = $('#fileList')
-	    uploader.on( 'fileQueued', function( file ) {
-	    	console.log(1)
-		    var $li = $(
-				    '<div id="' + file.id + '" class="file-item thumbnail">' +
-				    '<img>' +
-				    '<div class="info">' + file.name + '</div>' +
-				    '</div>'
-			    ),
-			    $img = $li.find('img');
+			pick: {
+				id: '#avatarPicker',
+				multiple: false,
+                innerHTML: '选择头像'
+            },
+
+			// 只允许选择图片文件。
+			accept: {
+				title: 'Images',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+			},
+            thumb: {
+				width: 300,
+                height: 300,
+	            crop: true
+            },
+			formData: {
+				name: 'ad',
+                b: 1,
+                c: 2
+            }
+		});
+
+		// 当有文件添加进来的时候
+		var $list = $('#avatarPre')
+        var avatar = null
+		uploader.on('fileQueued', function (file) {
+			var $li = $(
+					'<div id="' + file.id + '" class="admin-shopInfo-avatar-pre thumbnail">' +
+					'<img>' +
+					'</div>'
+				),
+				$img = $li.find('img');
 
 
-		    // $list为容器jQuery实例
-		    $list.append( $li );
+			// $list为容器jQuery实例
+			$list.append($li);
 
-		    // 创建缩略图
-		    // 如果为非图片文件，可以不用调用此方法。
-		    // thumbnailWidth x thumbnailHeight 为 100 x 100
-		    var thumbnailWidth = 300,thumbnailHeight = 300
-		    uploader.makeThumb( file, function( error, src ) {
-			    if ( error ) {
-				    $img.replaceWith('<span>不能预览</span>');
-				    return;
-			    }
+			// 创建缩略图
+			// 如果为非图片文件，可以不用调用此方法。
+			// thumbnailWidth x thumbnailHeight 为 100 x 100
+			var thumbnailWidth = 300, thumbnailHeight = 300
+			uploader.makeThumb(file, function (error, src) {
+				if (error) {
+					$img.replaceWith('<span>不能预览</span>');
+					return;
+				}
 
-			    $img.attr( 'src', src );
-		    }, thumbnailWidth, thumbnailHeight );
-	    });
-    })
+				$img.attr('src', src);
+			}, thumbnailWidth, thumbnailHeight);
+			avatar = file
+		});
+
+		//上传结束时触发
+		uploader.on('uploadFinished',function () {
+            console.log('finish')
+		})
+
+        uploader.on('uploadError',function (rs) {
+            console.log(rs)
+            console.log('错误')
+        })
+
+        uploader.on('uploadSuccess',function (rs) {
+            console.log(rs)
+            console.log('success')
+        })
+		
+		//上传头像
+        var $avatarUpload = $('#avatarUpload')
+		$avatarUpload.on('click',function () {
+			uploader.upload(avatar)
+		})
+	})
 </script>
 <!--/预留存放单页面js-->
 </body>
