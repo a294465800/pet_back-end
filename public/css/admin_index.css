@@ -267,16 +267,19 @@ body {
     margin-top: 20px;
 }
 
-.admin-commodity-btn {
+.admin-commodity-btn, .admin-btn {
     background-color: #ff963d;
     border-color: #ff963d;
     color: #fff;
+}
+
+.admin-commodity-btn {
     width: 300px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.admin-commodity-btn:hover {
+.admin-commodity-btn:hover, .admin-btn:hover {
     background: #e58300;
     color: #fff;
 }

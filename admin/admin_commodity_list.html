@@ -26,8 +26,21 @@
             </div>
 
             <!--预留位置，填充页面标题信息-->
-            <div class="admin-header-function-title clearfix">
-                <p class="admin-header-function-title-p admin-commodity-header-title">发布新商品</p>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 col-xs-7 col-xs-offset-5 col-sm-7 col-sm-offset-5">
+                    <div class="form-group">
+                        <label class="sr-only" aria-label="search commodity"></label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </div>
+                            <input type="text" class="form-control admin-commodity-input">
+                            <div class="input-group-btn">
+                                <div class="btn admin-btn">搜索</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--/预留位置，填充页面标题信息-->
         </div>
@@ -83,65 +96,7 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <div class="admin-commodity-form">
-                <form action="" class="form-horizontal">
-                    <div class="form-group">
-                        <label for="commodity_title" class="control-label col-md-2">标题：</label>
-                        <div class="col-md-10">
-                            <input id="commodity_title" name="commodity_title" type="text"
-                                   class="form-control admin-commodity-input" placeholder="商品标题">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_exPrice" class="control-label col-md-2">原价：</label>
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <input id="commodity_exPrice" name="commodity_exPrice" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
-                                <div class="input-group-addon">￥</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_Price" class="control-label col-md-2">售价：</label>
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <input id="commodity_price" name="commodity_price" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
-                                <div class="input-group-addon">￥</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_desc" class="control-label col-md-2">产品说明：</label>
-                        <div class="col-md-10">
-                            <textarea name="commodity_desc" id="commodity_desc" cols="30" rows="5"
-                                      class="form-control admin-commodity-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_notes" class="control-label col-md-2">购买须知：</label>
-                        <div class="col-md-10">
-                            <textarea name="commodity_notes" id="commodity_notes" cols="30" rows="5" class="form-control admin-commodity-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_notes" class="control-label col-md-2">商品图片：</label>
-                        <div class="col-md-10">
-                            <div class="webuploader-container">
-                                <div id="commodityList" class="admin-shopInfo-shopImg-pre clearfix"></div>
-                                <div id="commodityPicker">选择图片</div>
-                                <div class="admin-shopInfo-avatar-upload" id="commodityUpload">开始上传</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10 admin-commodity-sub">
-                            <button type="submit" class="btn admin-commodity-btn">发布</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
             <!--/从这里开始不同-->
         </div>
     </div>
@@ -170,7 +125,7 @@
 		var $commodity_list = $('#commodity-list')
 		$commodity_list.addClass('in')
 		$commodity_list.parent('.admin-navigation-li').addClass('active')
-		$commodity_list.find('.admin-navigation-function-add').addClass('active')
+		$commodity_list.find('.admin-navigation-function-list').addClass('active')
 	})
 </script>
 <!--/预留存放单页面js-->
