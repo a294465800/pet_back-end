@@ -76,18 +76,15 @@
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
                    href="#commodity-list">商品管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="commodity-list">
-                    <li class="admin-navigation-function admin-navigation-function-add"><a
-                            href="admin_commodity_add.html" class="admin-navigation-a-btn">发布新商品</a></li>
-                    <li class="admin-navigation-function admin-navigation-function-list"><a
-                            href="admin_commodity_list.html" class="admin-navigation-a-btn">商品查询</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-add"><a href="admin_commodity_add.html" class="admin-navigation-a-btn">发布新商品</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-list"><a href="admin_commodity_list.html" class="admin-navigation-a-btn">商品查询</a></li>
                 </ul>
             </li>
             <li class="admin-navigation-li">
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
                    href="#shop-list">店铺管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="shop-list">
-                    <li class="admin-navigation-function"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a>
-                    </li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-shopInfo"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li></li>
                 </ul>
             </li>
         </ul>
@@ -281,7 +278,7 @@
 		var $commodity_list = $('#commodity-list')
 		$commodity_list.addClass('in')
 		$commodity_list.parent('.admin-navigation-li').addClass('active')
-		$commodity_list.find('.admin-navigation-function-list').addClass('active')
+		$commodity_list.find('#admin-navigation-function-commodity-list').addClass('active')
 	})
 </script>
 <!--/预留存放单页面js-->
