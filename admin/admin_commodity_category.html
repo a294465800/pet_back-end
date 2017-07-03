@@ -83,82 +83,15 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <div class="admin-commodity-form">
-                <form action="" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">类别：</label>
-                        <div class="col-md-10">
-                            <label class="checkbox-inline">
-                                <span class="glyphicon glyphicon-unchecked"></span>
-                                <input type="checkbox" id="inlineCheckbox1" value="option1" class="hidden"> 狗狗
-                            </label>
-                            <label class="checkbox-inline">
-                                <span class="glyphicon glyphicon-unchecked"></span>
-                                <input type="checkbox" id="inlineCheckbox2" value="option2" class="hidden"> 猫猫
-                            </label>
-                            <label class="checkbox-inline">
-                                <span class="glyphicon glyphicon-unchecked"></span>
-                                <input type="checkbox" id="inlineCheckbox3" value="option3" class="hidden"> 猪
-                            </label>
-                        </div>
+            <form action="" class="form-horizontal admin-order-container col-md-5 col-xs-7">
+                <div class="input-group">
+                    <label class="sr-only">添加新的商品类别</label>
+                    <input type="text" class="form-control admin-commodity-input" placeholder="添加新的商品类别">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn admin-btn">添加</button>
                     </div>
-                    <div class="form-group">
-                        <label for="commodity_title" class="control-label col-md-2">标题：</label>
-                        <div class="col-md-10">
-                            <input id="commodity_title" name="commodity_title" type="text"
-                                   class="form-control admin-commodity-input" placeholder="商品标题">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_exPrice" class="control-label col-md-2">原价：</label>
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <input id="commodity_exPrice" name="commodity_exPrice" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
-                                <div class="input-group-addon">￥</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_Price" class="control-label col-md-2">售价：</label>
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <input id="commodity_price" name="commodity_price" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
-                                <div class="input-group-addon">￥</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_desc" class="control-label col-md-2">产品说明：</label>
-                        <div class="col-md-10">
-                            <textarea name="commodity_desc" id="commodity_desc" cols="30" rows="5"
-                                      class="form-control admin-commodity-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_notes" class="control-label col-md-2">购买须知：</label>
-                        <div class="col-md-10">
-                            <textarea name="commodity_notes" id="commodity_notes" cols="30" rows="5" class="form-control admin-commodity-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="commodity_notes" class="control-label col-md-2">商品图片：</label>
-                        <div class="col-md-10">
-                            <div class="webuploader-container">
-                                <div id="commodityList" class="admin-shopInfo-shopImg-pre clearfix"></div>
-                                <div id="commodityPicker">选择图片</div>
-                                <div class="admin-shopInfo-avatar-upload" id="commodityUpload">开始上传</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10 admin-commodity-sub">
-                            <button type="submit" class="btn admin-commodity-btn">发布</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
             <!--/从这里开始不同-->
         </div>
     </div>
@@ -179,15 +112,13 @@
 <!--/admin的主js-->
 
 <!--预留存放单页面js-->
-<script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
-<script src="../public/js/upload_function.js"></script>
 <script>
 	$(function () {
 		//网页初始化
 		var $commodity_list = $('#commodity-list')
 		$commodity_list.addClass('in')
 		$commodity_list.parent('.admin-navigation-li').addClass('active')
-		$commodity_list.find('#admin-navigation-function-commodity-add').addClass('active')
+		$commodity_list.find('#admin-navigation-function-commodity-category').addClass('active')
 	})
 </script>
 <!--/预留存放单页面js-->
