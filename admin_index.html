@@ -58,7 +58,7 @@
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
                    href="#commodity-list">商品管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="commodity-list">
-                    <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">发布新商品</a></li>
+                    <li class="admin-navigation-function admin-navigation-function-add"><a href="admin/admin_commodity_add.html" class="admin-navigation-a-btn">发布新商品</a></li>
                     <li class="admin-navigation-function"><a href="#" class="admin-navigation-a-btn">商品查询</a></li>
                 </ul>
             </li>
@@ -66,8 +66,7 @@
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
                    href="#shop-list">店铺管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="shop-list">
-                    <li class="admin-navigation-function"><a href="admin/admin_shopInfo.html"
-                                                             class="admin-navigation-a-btn">信息修改</a></li>
+                    <li class="admin-navigation-function"><a href="admin/admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li>
                 </ul>
             </li>
         </ul>
@@ -98,14 +97,15 @@
 
 
 <script src="public/build/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script>
-	//	$(function(){
-	//		$('#order-list').collapse('toggle')
-	//    })
-</script>
 
 <!--admin的主js-->
 <script src="public/js/admin_index_action.js"></script>
 <!--/admin的主js-->
+
+<!--留空给每个页面设置初始化-->
+<script>
+
+</script>
+<!--/留空给每个页面设置初始化-->
 </body>
 </html>

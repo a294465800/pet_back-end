@@ -21,4 +21,5 @@ $(function () {
 		event.stopPropagation()
 		$(this).addClass('active')
 	})
+
 })
