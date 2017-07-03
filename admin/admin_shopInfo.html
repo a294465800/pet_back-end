@@ -155,9 +155,21 @@
                         <div class="admin-shopInfo-avatar-upload" id="avatarUpload">上传头像</div>
                     </div>
                 </div>
-                <!--<img src="" alt="头像预览" class="admin-shopInfo-avatar-pre">-->
             </div>
             <!--/上传头像-->
+
+            <!--门店图片上传-->
+            <div class="admin-shopInfo-shopImg">
+                <h3 class="admin-shopInfo-avatar-title">店铺门面</h3>
+                <div id="shop_img" class="webuploader-container">
+                    <div class="webuploader-container">
+                        <div id="shop_img_pre" class="admin-shopInfo-shopImg-pre clearfix"></div>
+                        <div id="shopImgPicker">选择图片</div>
+                        <div class="admin-shopInfo-avatar-upload" id="shopImgUpload">开始上传</div>
+                    </div>
+                </div>
+            </div>
+            <!--/门店图片上传-->
             <!--/从这里开始不同-->
         </div>
     </div>
@@ -179,103 +191,7 @@
 
 <!--预留存放单页面js-->
 <script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
-<script>
-	$(function () {
-// 初始化Web Uploader
-		var uploader = WebUploader.create({
-
-			// 选完文件后，是否自动上传。
-			auto: false,
-
-			fileVal: 'avatar',
-
-			// swf文件路径
-			swf: '../public/build/webuploader/Uploader.swf',
-
-			// 文件接收服务端。
-			server: 'http://webuploader.duapp.com/server/fileupload.php',
-
-			// 选择文件的按钮。可选。
-			// 内部根据当前运行是创建，可能是input元素，也可能是flash.
-			dnd: '#avatarPre',
-			disableGlobalDnd: true,
-
-			pick: {
-				id: '#avatarPicker',
-				multiple: false,
-                innerHTML: '选择头像'
-            },
-
-			// 只允许选择图片文件。
-			accept: {
-				title: 'Images',
-				extensions: 'gif,jpg,jpeg,bmp,png',
-				mimeTypes: 'image/*'
-			},
-            thumb: {
-				width: 300,
-                height: 300,
-	            crop: true
-            },
-			formData: {
-				name: 'ad',
-                b: 1,
-                c: 2
-            }
-		});
-
-		// 当有文件添加进来的时候
-		var $list = $('#avatarPre')
-        var avatar = null
-		uploader.on('fileQueued', function (file) {
-			var $li = $(
-					'<div id="' + file.id + '" class="admin-shopInfo-avatar-pre thumbnail">' +
-					'<img>' +
-					'</div>'
-				),
-				$img = $li.find('img');
-
-
-			// $list为容器jQuery实例
-			$list.append($li);
-
-			// 创建缩略图
-			// 如果为非图片文件，可以不用调用此方法。
-			// thumbnailWidth x thumbnailHeight 为 100 x 100
-			var thumbnailWidth = 300, thumbnailHeight = 300
-			uploader.makeThumb(file, function (error, src) {
-				if (error) {
-					$img.replaceWith('<span>不能预览</span>');
-					return;
-				}
-
-				$img.attr('src', src);
-			}, thumbnailWidth, thumbnailHeight);
-			avatar = file
-		});
-
-		//上传结束时触发
-		uploader.on('uploadFinished',function () {
-            console.log('finish')
-		})
-
-        uploader.on('uploadError',function (rs) {
-            console.log(rs)
-            console.log('错误')
-        })
-
-        uploader.on('uploadSuccess',function (rs) {
-            console.log(rs)
-            console.log('success')
-        })
-		
-		//上传头像
-        var $avatarUpload = $('#avatarUpload')
-		$avatarUpload.on('click',function () {
-			uploader.upload(avatar)
-		})
-	})
-</script>
+<script src="../public/js/admin_shopInfo.js"></script>
 <!--/预留存放单页面js-->
 </body>
 </html>
