@@ -11,12 +11,12 @@
 <body>
 <!--导航-->
 <header class="admin-header clearfix">
-    <div class="container-fluid">
-        <a class="admin-header-logo">宠物镇</a>
-        <div class="admin-header-function clearfix">
-            <div class="admin-header-function-common clearfix">
-                <p class="pull-left">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
-                <div class="admin-header-a clearfix pull-right">
+    <div class="container-fluid row">
+        <a class="admin-header-logo col-md-2 col-xs-3">宠物镇</a>
+        <div class="admin-header-function col-md-10 col-xs-9">
+            <div class="admin-header-function-common row">
+                <p class="col-md-9">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
+                <div class="admin-header-a clearfix col-md-3">
                     <a href="" class="pull-right">退出登录</a>
                     <a href="" class="pull-right">宠物镇首页</a>
                 </div>
@@ -31,10 +31,10 @@
 <!--/导航-->
 
 <!--主体-->
-<section class="container-fluid admin-body">
+<section class="container-fluid admin-body row">
 
     <!--导航菜单，所有页面相同-->
-    <div class="admin-navigation pull-left">
+    <div class="admin-navigation col-md-2 hidden-sm">
         <ul class="admin-navigation-ul panel-group" id="admin-navigation-ul">
             <li class="admin-navigation-li">
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title"
@@ -75,7 +75,7 @@
     <!--/导航菜单，所有页面相同-->
 
     <!--内容，所有页面不同-->
-    <div class="admin-content">
+    <div class="admin-content col-md-10">
         <div class="container-fluid">
 
             <!--从这里开始不同-->

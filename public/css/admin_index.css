@@ -16,11 +16,10 @@ body {
 
 .admin-header-logo {
     height: 80px;
-    width: 180px;
     font: normal 40px/80px "微软雅黑";
     text-align: center;
     color: #000;
-    float: left;
+    padding: 0!important;
 }
 
 .admin-header-logo:hover {
@@ -29,8 +28,7 @@ body {
 }
 
 .admin-header-function {
-    margin-left: 180px;
-    width: auto;
+    height: 80px;
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
@@ -70,8 +68,8 @@ body {
 
 /*导航*/
 .admin-navigation {
-    width: 195px;
     padding-top: 40px;
+    padding-right: 0 !important;
 }
 
 .admin-navigation-ul {
@@ -131,14 +129,14 @@ body {
     font: normal 16px "微软雅黑";
     padding: 5px;
     padding-left: 80px;
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
 /*内容*/
 .admin-content {
-    margin-left: 195px;
-    margin-right: 0;
+    /*margin-left: 195px;*/
+    /*margin-right: 0;*/
     min-height: 850px;
     background-color: #fff;
 }

@@ -3,6 +3,12 @@
  */
 $(function () {
 
+	//网页初始化
+	var $shop_list = $('#shop-list')
+	$shop_list.addClass('in')
+	$shop_list.parent('.admin-navigation-li').addClass('active')
+	$shop_list.find('.admin-navigation-function').addClass('active')
+
 	//swf文件地址
 	var swf = '../public/build/webuploader/Uploader.swf'
 	//文件上传地址
