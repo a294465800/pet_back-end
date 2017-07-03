@@ -82,6 +82,29 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
+            <div class="admin-user-add-container">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="user_desc" class="col-md-1">描述：</label>
+                        <div class="col-md-11">
+                            <textarea name="user_desc" id="user_desc" cols="30" rows="5" class="form-control" placeholder="请输入动态内容"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_desc" class="col-md-1">图片：</label>
+                        <div class="col-md-11">
+                            <div class="webuploader-container">
+                                <div id="user_dynamicList" class="admin-shopInfo-shopImg-pre clearfix"></div>
+                                <div id="userDynamicPicker">选择图片</div>
+                                <div class="admin-shopInfo-avatar-upload" id="userDynamicUpload">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="button" class="btn admin-commodity-btn">发布</button>
+                    </div>
+                </form>
+            </div>
             <!--/从这里开始不同-->
         </div>
     </div>

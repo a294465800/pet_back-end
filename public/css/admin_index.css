@@ -133,8 +133,6 @@ body {
 
 /*内容*/
 .admin-content {
-    /*margin-left: 195px;*/
-    /*margin-right: 0;*/
     min-height: 850px;
     background-color: #fff;
 }
@@ -146,9 +144,67 @@ body {
     padding-top: 20px;
 }
 
+/*店家信息*/
+/*头部样式*/
+.admin-header-function-title-p {
+    display: inline-block;
+    margin-right: 30px;
+    font: normal 16px "微软雅黑";
+}
+
+.admin-header-function-title-span {
+    color: #ff963d;
+    font: normal 16px "微软雅黑";
+}
+
+/*表单样式*/
+.admin-shopInfo-form, .admin-shopInfo-avatar-part, .admin-shopInfo-shopImg {
+    padding: 20px 15px 20px 30px;
+}
+
+.admin-shopInfo-type {
+    display: inline-block;
+    color: #000;
+    font: normal 16px "微软雅黑";
+}
+
+.admin-shopInfo-type > span {
+    padding-right: 8px;
+    border-right: 2px solid #ff963d;
+    margin-right: 10px;
+}
+
+.admin-shopInfo-input-type {
+    width: 420px;
+    border: 2px solid #ff963d;
+    box-shadow: 4px 4px 2px #eee;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.admin-shopInfo-form-icon {
+    width: 20px;
+}
+
+label {
+    margin: 0 !important;
+}
+
+.admin-shopInfo-input {
+    border: 0;
+    border: none;
+    width: 260px;
+    font-size: 14px;
+}
+
+.admin-shopInfo-input:focus {
+    outline: none;
+}
+
 /*上传样式*/
 
-#avatarPicker, #shopImgPicker, #commodityPicker {
+#avatarPicker, #shopImgPicker, #commodityPicker, #userDynamicPicker {
     display: inline-block;
     vertical-align: middle;
     margin: 0 12px 0 0;
@@ -193,7 +249,6 @@ body {
 }
 
 .admin-shopInfo-shopImg-pre {
-    /*height: 200px;*/
     min-height: 120px;
     padding: 20px;
     background-color: #eee;
@@ -252,7 +307,7 @@ body {
     padding-top: 20px;
 }
 
-.admin-commodity-input, .admin-commodity-textarea {
+.admin-commodity-input, .admin-commodity-textarea, .admin-user-add-container textarea {
     border-color: #ff963d;
 }
 
@@ -431,7 +486,13 @@ body {
     border-color: #ff963d;
 }
 
-.admin-commodity-info-page .active a:hover,.admin-commodity-info-page .active a:focus,.admin-commodity-info-page .active a:active {
+.admin-commodity-info-page .active a:hover, .admin-commodity-info-page .active a:focus, .admin-commodity-info-page .active a:active {
     background-color: #ec8b38;
     border-color: #ec8b38;
+}
+
+/*商家动态*/
+.admin-user-add-container {
+    max-width: 1000px;
+    padding-top: 20px;
 }

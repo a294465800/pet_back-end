@@ -193,8 +193,8 @@ $(function () {
 		})
 	}
 
+	//	商品上传
 	else if ($('#commodityPicker').html()) {
-		//	商品上传
 		// 初始化Web Uploader
 		var commodityUploader = WebUploader.create({
 
@@ -282,6 +282,98 @@ $(function () {
 		var $commodityUpload = $('#commodityUpload')
 		$commodityUpload.on('click', function () {
 			commodityUploader.upload(commodity)
+		})
+	}
+
+	//	动态上传
+	else if($('#userDynamicPicker').html()){
+		// 初始化Web Uploader
+		var userDynamicUploader = WebUploader.create({
+
+			// 选完文件后，是否自动上传。
+			auto: false,
+
+			fileVal: 'commodity',
+
+			// swf文件路径
+			swf: swf,
+
+			// 文件接收服务端。
+			server: host,
+
+			// 选择文件的按钮。可选。
+			// 内部根据当前运行是创建，可能是input元素，也可能是flash.
+			dnd: '#user_dynamicList',
+			disableGlobalDnd: true,
+
+			pick: {
+				id: '#userDynamicPicker',
+				multiple: true,
+				innerHTML: '选择图片'
+			},
+
+			// 只允许选择图片文件。
+			accept: {
+				title: 'Images',
+				extensions: 'gif,jpg,jpeg,bmp,png',
+				mimeTypes: 'image/*'
+			},
+			thumb: {
+				width: 150,
+				height: 150,
+				crop: true
+			},
+		});
+
+		// 当有文件添加进来的时候
+		var $user_dynamicList = $('#user_dynamicList')
+		var userDynamic = new Array(0)
+		userDynamicUploader.on('fileQueued', function (file) {
+			var $li = $(
+					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
+					'<img>' +
+					'</div>'
+				),
+				$img = $li.find('img');
+
+
+			// $commodityList为容器jQuery实例
+			$user_dynamicList.append($li);
+
+			// 创建缩略图
+			// 如果为非图片文件，可以不用调用此方法。
+			// thumbnailWidth x thumbnailHeight 为 100 x 100
+			var thumbnailWidth = 150, thumbnailHeight = 150
+			userDynamicUploader.makeThumb(file, function (error, src) {
+				if (error) {
+					$img.replaceWith('<span>不能预览</span>');
+					return;
+				}
+
+				$img.attr('src', src);
+			}, thumbnailWidth, thumbnailHeight);
+			userDynamic.push(file)
+		});
+
+		//上传结束时触发
+		userDynamicUploader.on('uploadFinished', function () {
+			console.log('finish')
+		})
+
+		userDynamicUploader.on('uploadError', function (rs) {
+			console.log(rs)
+			console.log('错误')
+		})
+
+		userDynamicUploader.on('uploadSuccess', function (rs) {
+			console.log(rs)
+			console.log('success')
+		})
+
+		//上传头像
+		var $userDynamicUpload = $('#userDynamicUpload')
+		$userDynamicUpload.on('click', function () {
+			userDynamicUploader.upload(userDynamic)
 		})
 	}
 })
