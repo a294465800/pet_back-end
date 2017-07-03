@@ -339,6 +339,10 @@ label {
     color: #fff;
 }
 
+.admin-commodity-form .checkbox-inline {
+    /*color: #ff963d!important;*/
+}
+
 /*商品查询*/
 
 .admin-commodity-info-head {
