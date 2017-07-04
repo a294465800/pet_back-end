@@ -354,15 +354,16 @@ label {
     border-color: #ff963d;
     min-width: 90px;
 }
+
 .selectize-input {
-    padding: 0!important;
-    border: 0!important;
+    padding: 0 !important;
+    border: 0 !important;
     text-indent: .5em;
     text-align: left;
 }
 
 .selectize-control.single .selectize-input:after {
-    right: 5px!important;
+    right: 5px !important;
 }
 
 .admin-commodity-info-head {
@@ -387,6 +388,7 @@ label {
 .admin-commodity-info-function {
     background-color: #f1f1f1;
     padding: 10px 20px;
+    position: relative;
 }
 
 .admin-commodity-info-btn {
@@ -418,6 +420,14 @@ label {
     padding-left: 20px;
     padding-right: 20px;
     color: #3c3c3c;
+    position: relative;
+}
+
+.admin-commodity-info-item-order_used {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #ff963d;
 }
 
 .admin-commodity-info-item table tbody tr td {
@@ -447,11 +457,20 @@ label {
     padding-left: 20px !important;
 }
 
-.admin-commodity-info-price {
+.admin-commodity-info-price, .admin-commodity-info-price-r {
     color: #ff963d;
     font-size: 16px;
     font-weight: bold;
     margin-right: 10px;
+}
+
+.admin-commodity-info-price-r {
+    margin-right: 0;
+    display: block;
+}
+
+.admin-commodity-info-people {
+
 }
 
 .admin-commodity-info-exPrice {
@@ -479,6 +498,16 @@ label {
 .admin-commodity-info-function-link {
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.admin-commodity-info-item-caption {
+    margin-right: 20px;
+    color: #000;
+}
+
+.admin-commodity-info-card {
+    margin: 0;
+    width: 100%;
 }
 
 .admin-commodity-info-page-container {
@@ -528,4 +557,29 @@ label {
 .admin-order-container {
     max-width: 800px;
     padding-top: 50px;
+}
+
+/*排序*/
+
+.admin-commodity-info-function-order-way {
+    text-align: right;
+}
+
+.admin-commodity-info-order-inline {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: 20px;
+    bottom: 7px;
+}
+
+.admin-commodity-info-order {
+    display: inline-block;
+    width: 100px;
+    vertical-align: middle;
+}
+
+.admin-commodity-info-order .selectize-input {
+    height: 30px;
+    line-height: 30px;
 }

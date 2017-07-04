@@ -124,6 +124,14 @@
                 <button type="button" class="btn  admin-commodity-info-btn" id="commodityDel">删除</button>
                 <button type="button" class="btn  admin-commodity-info-btn" id="commodityUp">上架</button>
                 <button type="button" class="btn  admin-commodity-info-btn" id="commodityDown">下架</button>
+                <div class="admin-commodity-info-order-inline">
+                    <label class="control-label">排序方式</label>
+                    <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
             </div>
             <div class="admin-commodity-info-body">
                 <div class="admin-commodity-info-item">
@@ -318,6 +326,10 @@
 	})
 	$('#commoditySearch').selectize({
 		create: true,
+		sortField: 'text'
+	});
+	$('#order_list_way').selectize({
+	create: true,
 		sortField: 'text'
 	});
 </script>
