@@ -43,7 +43,13 @@ $(function () {
 	var $all_commodity = $('#all_commodity')
 	var checkbox = true
 	$all_commodity.on('click', function (e) {
-		$('.commodity-id').attr('checked', checkbox)
+
+		var $commodity_id = $('.commodity-id')
+		$all_commodity.find('input[name="all_commodity"]')[0].checked = checkbox
+		for(var i in $commodity_id){
+			$commodity_id[i].checked = checkbox
+		}
+
 		e.stopPropagation()
 		checkbox = !checkbox
 	})
