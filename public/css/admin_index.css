@@ -344,6 +344,26 @@ label {
 }
 
 /*商品查询*/
+.search-select {
+    /*width: 200px;*/
+}
+
+.search-select {
+    background-color: #ff963d;
+    color: #fff;
+    border-color: #ff963d;
+    min-width: 90px;
+}
+.selectize-input {
+    padding: 0!important;
+    border: 0!important;
+    text-indent: .5em;
+    text-align: left;
+}
+
+.selectize-control.single .selectize-input:after {
+    right: 5px!important;
+}
 
 .admin-commodity-info-head {
     margin-top: 20px;
