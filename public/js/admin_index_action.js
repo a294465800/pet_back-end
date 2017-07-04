@@ -96,4 +96,43 @@ $(function () {
 		}
 	})
 
+	//评论展开事件
+	var $open_comment = $('.admin-user-comment-item-comment-num')
+	// var openComment = false
+	$open_comment.on('click',function () {
+		var openComment = $(this).parents('.admin-user-comment-item').find('.admin-user-comment-item-all-comments')
+		if(openComment.css('display') === 'block') {
+			openComment.hide()
+		}else {
+			openComment.show()
+		}
+		// openComment = !openComment
+	})
+
+	//回复评论
+	var $replay_comment = $('.admin-user-comment-item-all-comments-item-replay')
+	$replay_comment.on('click',function () {
+		$(this).siblings().hide()
+		$(this).hide()
+		var $father = $(this).parent('.admin-user-comment-item-all-comments-item-function')
+		var $string = $('<div class="replay_father">' +
+			'<div class="form-group clearfix">' +
+			'<label class="sr-only">回复</label>' +
+			'<input type="text" class="form-control">' +
+			'</div>' +
+			'<button class="pull-right btn admin-btn">回复</button>' +
+			'<button class="pull-right btn cancel-btn replay_cancel">取消</button>' +
+			'</div>')
+		$father.append($string)
+
+		//取消回复
+		var $replay_cancel = $('.replay_cancel')
+		$replay_cancel.on('click',function () {
+			var $father = $(this).parent('.replay_father')
+			$father.siblings().show()
+			$father.remove()
+		})
+	})
+
+
 })

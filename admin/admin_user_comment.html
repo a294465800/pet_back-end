@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../public/css/admin_index.css">
     <script src="../public/js/jquery-3.2.1.min.js"></script>
     <!--预留存放单页面css-->
-    <link rel="stylesheet" href="../public/build/webuploader/webuploader.css">
     <link rel="stylesheet" href="../public/build/selectize/dist/css/selectize.css">
     <!--/预留存放单页面css-->
 </head>
@@ -89,40 +88,316 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <div class="admin-commodity-info-head">
-                <table class="table admin-commodity-info-head-table table-responsive">
-                    <thead>
-                    <tr>
-                        <td class="col-md-3">商品名称</td>
-                        <td class="col-md-2">价格</td>
-                        <td class="col-md-2">销量</td>
-                        <td class="col-md-2">发布时间</td>
-                        <td class="col-md-2">操作</td>
-                        <td class="col-md-1">状态</td>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="admin-commodity-info-function">
-                <div class="checkbox-inline" id="all_commodity">
-                    <label class="sr-only">全选</label>
-                    <input type="checkbox" name="all_commodity">全选
-                </div>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityDel">删除</button>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityUp">上架</button>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityDown">下架</button>
-                <div class="admin-commodity-info-order-inline">
-                    <label class="control-label">排序方式</label>
-                    <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
+            <!--<div class="admin-commodity-info-head">-->
+                <!--<table class="table admin-commodity-info-head-table table-responsive">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<td class="col-md-3">商品名称</td>-->
+                        <!--<td class="col-md-2">价格</td>-->
+                        <!--<td class="col-md-2">销量</td>-->
+                        <!--<td class="col-md-2">发布时间</td>-->
+                        <!--<td class="col-md-2">操作</td>-->
+                        <!--<td class="col-md-1">状态</td>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                <!--</table>-->
+            <!--</div>-->
+            <div class="admin-commodity-info-function admin-commodity-info-function-order-way" style="margin-top: 20px">
+                <label class="control-label">排序方式</label>
+                <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
             </div>
             <div class="admin-user-comment-body">
-                <div class="admin-user-comment-item">
+                <div class="admin-user-comment-item clearfix">
+                    <div class="admin-user-comment-item-head clearfix">
+                        <div class="col-md-4 col-lg-3 col-sm-4 col-xs-4 admin-user-comment-item-head-img">
+                            <img class="img-responsive" src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="图片">
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-sm-8 col-xs-8 admin-user-comment-item-head-content">
+                            <div>
+                                一个女人，以为跟自己长期暗恋的对象，更近一步而开心。结果叶荣添上床后没几天，就接近她，套取了她继父的身体报告，公告于媒体，然后诱导她生父打击她的继父，他就乘机渔翁得利。出卖朋友，出卖爱自己的女人，无言以对。这活生生就是男版玛丽苏大剧，三观这么不正的主角，第一次碰到。
 
+                                作者：白金一只猫
+                                链接：https://www.zhihu.com/question/61921038/answer/193145449
+                                来源：知乎
+                                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+                            </div>
+                        </div>
+                        <div class="admin-user-comment-item-article-all">阅读全文</div>
+                    </div>
+                    <div class="admin-user-comment-item-function">
+                        <span class="admin-user-comment-item-love">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span>30人点赞</span>
+                        </span>
+                        <span class="admin-user-comment-item-comment-num">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            <span>65条评论</span>
+                        </span>
+                    </div>
+                    <div class="admin-user-comment-item-all-comments">
+                        <div class="admin-user-comment-item-all-comments-head clearfix">
+                            <div class="pull-left">65条评论</div>
+                            <div class="pull-right">排序</div>
+                        </div>
+                        <div class="admin-user-comment-item-all-comments-body">
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <div class="admin-user-comment-item-your-replay">
+                                    <div>
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>
+                                    </div>
+                                    <div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-user-comment-item clearfix">
+                    <div class="admin-user-comment-item-head clearfix">
+                        <div class="col-md-4 col-lg-3 col-sm-4 col-xs-4 admin-user-comment-item-head-img">
+                            <img class="img-responsive" src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="图片">
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-sm-8 col-xs-8 admin-user-comment-item-head-content">
+                            <div>
+                                一个女人，以为跟自己长期暗恋的对象，更近一步而开心。结果叶荣添上床后没几天，就接近她，套取了她继父的身体报告，公告于媒体，然后诱导她生父打击她的继父，他就乘机渔翁得利。出卖朋友，出卖爱自己的女人，无言以对。这活生生就是男版玛丽苏大剧，三观这么不正的主角，第一次碰到。
+
+                                作者：白金一只猫
+                                链接：https://www.zhihu.com/question/61921038/answer/193145449
+                                来源：知乎
+                                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+                            </div>
+                        </div>
+                        <div class="admin-user-comment-item-article-all">阅读全文</div>
+                    </div>
+                    <div class="admin-user-comment-item-function">
+                        <span class="admin-user-comment-item-love">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span>30人点赞</span>
+                        </span>
+                        <span class="admin-user-comment-item-comment-num">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            <span>65条评论</span>
+                        </span>
+                    </div>
+                    <div class="admin-user-comment-item-all-comments">
+                        <div class="admin-user-comment-item-all-comments-head clearfix">
+                            <div class="pull-left">65条评论</div>
+                            <div class="pull-right">排序</div>
+                        </div>
+                        <div class="admin-user-comment-item-all-comments-body">
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <!--<div class="admin-user-comment-item-your-replay">-->
+                                <!--<div>-->
+                                <!--<img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">-->
+                                <!--<span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>-->
+                                <!--</div>-->
+                                <!--<div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>-->
+                                <!--</div>-->
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <!--<div class="admin-user-comment-item-your-replay">-->
+                                <!--<div>-->
+                                <!--<img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">-->
+                                <!--<span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>-->
+                                <!--</div>-->
+                                <!--<div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>-->
+                                <!--</div>-->
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <!--<div class="admin-user-comment-item-your-replay">-->
+                                <!--<div>-->
+                                <!--<img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">-->
+                                <!--<span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>-->
+                                <!--</div>-->
+                                <!--<div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>-->
+                                <!--</div>-->
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-user-comment-item clearfix">
+                    <div class="admin-user-comment-item-head clearfix">
+                        <div class="col-md-4 col-lg-3 col-sm-4 col-xs-4 admin-user-comment-item-head-img">
+                            <img class="img-responsive" src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="图片">
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-sm-8 col-xs-8 admin-user-comment-item-head-content">
+                            <div>
+                                一个女人，以为跟自己长期暗恋的对象，更近一步而开心。结果叶荣添上床后没几天，就接近她，套取了她继父的身体报告，公告于媒体，然后诱导她生父打击她的继父，他就乘机渔翁得利。出卖朋友，出卖爱自己的女人，无言以对。这活生生就是男版玛丽苏大剧，三观这么不正的主角，第一次碰到。
+
+                                作者：白金一只猫
+                                链接：https://www.zhihu.com/question/61921038/answer/193145449
+                                来源：知乎
+                                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+                            </div>
+                        </div>
+                        <div class="admin-user-comment-item-article-all">阅读全文</div>
+                    </div>
+                    <div class="admin-user-comment-item-function">
+                        <span class="admin-user-comment-item-love">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span>30人点赞</span>
+                        </span>
+                        <span class="admin-user-comment-item-comment-num">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            <span>65条评论</span>
+                        </span>
+                    </div>
+                    <div class="admin-user-comment-item-all-comments">
+                        <div class="admin-user-comment-item-all-comments-head clearfix">
+                            <div class="pull-left">65条评论</div>
+                            <div class="pull-right">排序</div>
+                        </div>
+                        <div class="admin-user-comment-item-all-comments-body">
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <!--<div class="admin-user-comment-item-your-replay">-->
+                                <!--<div>-->
+                                <!--<img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">-->
+                                <!--<span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>-->
+                                <!--</div>-->
+                                <!--<div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>-->
+                                <!--</div>-->
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-user-comment-item clearfix">
+                    <div class="admin-user-comment-item-head clearfix">
+                        <div class="col-md-4 col-lg-3 col-sm-4 col-xs-4 admin-user-comment-item-head-img">
+                            <img class="img-responsive" src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="图片">
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-sm-8 col-xs-8 admin-user-comment-item-head-content">
+                            <div>
+                                一个女人，以为跟自己长期暗恋的对象，更近一步而开心。结果叶荣添上床后没几天，就接近她，套取了她继父的身体报告，公告于媒体，然后诱导她生父打击她的继父，他就乘机渔翁得利。出卖朋友，出卖爱自己的女人，无言以对。这活生生就是男版玛丽苏大剧，三观这么不正的主角，第一次碰到。
+
+                                作者：白金一只猫
+                                链接：https://www.zhihu.com/question/61921038/answer/193145449
+                                来源：知乎
+                                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+                            </div>
+                        </div>
+                        <div class="admin-user-comment-item-article-all">阅读全文</div>
+                    </div>
+                    <div class="admin-user-comment-item-function">
+                        <span class="admin-user-comment-item-love">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span>30人点赞</span>
+                        </span>
+                        <span class="admin-user-comment-item-comment-num">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            <span>65条评论</span>
+                        </span>
+                    </div>
+                    <div class="admin-user-comment-item-all-comments">
+                        <div class="admin-user-comment-item-all-comments-head clearfix">
+                            <div class="pull-left">65条评论</div>
+                            <div class="pull-right">排序</div>
+                        </div>
+                        <div class="admin-user-comment-item-all-comments-body">
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name">小东</span>
+                                    </div>
+                                    <div class="pull-right">1小时前</div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content">顾不上评论了，我的钱包摸不着了！</div>
+                                <!--<div class="admin-user-comment-item-your-replay">-->
+                                <!--<div>-->
+                                <!--<img src="https://dummyimage.com/600x400/0d1475/d9ba0d.png" alt="用户昵称" class="admin-user-comment-item-all-comments-item-user-img">-->
+                                <!--<span class="admin-user-comment-item-all-comments-item-user-name">瑞文宠物</span>-->
+                                <!--</div>-->
+                                <!--<div class="admin-user-comment-item-all-comments-item-content">回复：是啊~</div>-->
+                                <!--</div>-->
+                                <div class="admin-user-comment-item-all-comments-item-function clearfix">
+                                    <div class="pull-left admin-user-comment-item-all-comments-item-function-love">该用户给你点了赞</div>
+                                    <div class="pull-right admin-user-comment-item-all-comments-item-replay">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>回复</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container-fluid admin-commodity-info-page-container">
@@ -158,8 +433,6 @@
 <!--/admin的主js-->
 
 <!--预留存放单页面js-->
-<script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
-<script src="../public/js/upload_function.js"></script>
 <script src="../public/build/selectize/dist/js/standalone/selectize.min.js"></script>
 <script>
 	$(function () {
@@ -169,10 +442,10 @@
 		$user_list.parent('.admin-navigation-li').addClass('active')
 		$user_list.find('#admin-navigation-function-user-comment').addClass('active')
 	})
-	$('#commoditySearch').selectize({
-		create: true,
-		sortField: 'text'
-	});
+//	$('#commoditySearch').selectize({
+//		create: true,
+//		sortField: 'text'
+//	});
 	$('#order_list_way').selectize({
 		create: true,
 		sortField: 'text'

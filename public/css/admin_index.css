@@ -32,6 +32,7 @@ body {
     padding: 10px 15px;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    background-color: #fff;
 }
 
 .admin-header-function-common {
@@ -43,7 +44,7 @@ body {
     width: 100%;
 }
 
-.admin-header-user {
+.admin-header-user, .admin-user-comment-item-all-comments-item-function-love {
     color: #ff963d;
 }
 
@@ -402,7 +403,7 @@ label {
     color: #ff963d;
 }
 
-.admin-commodity-info-body {
+.admin-commodity-info-body, .admin-user-comment-body {
     margin-top: 20px;
 }
 
@@ -586,6 +587,141 @@ label {
 
 /*面包屑导航*/
 .admin-breadcrumb {
-    margin: 0!important;
-    background-color: #fff!important;
+    margin: 0 !important;
+    background-color: #fff !important;
+}
+
+/*查看动态评论*/
+@media (min-width: 992px) {
+    .admin-user-comment-body {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+.admin-user-comment-item {
+    border: 1px solid #ececec;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.admin-user-comment-item-function {
+    margin-top: 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.admin-user-comment-item-head-content {
+    font-size: 18px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.admin-user-comment-item-head-content:hover {
+    color: #6f6f6f;
+    cursor: pointer;
+}
+
+.admin-user-comment-item-head {
+    position: relative;
+}
+
+.admin-user-comment-item-article-all {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+}
+
+.admin-user-comment-item-love {
+    color: #ff6a69;
+    margin-right: 20px;
+}
+
+.admin-user-comment-item-comment-num, .admin-user-comment-item-article-all {
+    color: #8590a6;
+    cursor: pointer;
+}
+
+.admin-user-comment-item-all-comments {
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+    border: 1px solid #ececec;
+    display: none;
+}
+
+.admin-user-comment-item-all-comments-body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.admin-user-comment-item-all-comments-head {
+    padding: 20px;
+    border-bottom: 1px solid #ececec;
+}
+
+.admin-user-comment-item-all-comments-item {
+    border-bottom: 1px solid #ececec;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 140px;
+}
+
+.admin-user-comment-item-all-comments-item:last-child {
+    border: 0;
+}
+
+.admin-user-comment-item-all-comments-item-user {
+    color: #8590a6;
+}
+
+.admin-user-comment-item-all-comments-item-user-img {
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.admin-user-comment-item-all-comments-item-user-name {
+    color: #333 !important;
+}
+
+.admin-user-comment-item-all-comments-item-content {
+    margin: 10px 0;
+}
+
+.admin-user-comment-item-all-comments-item-replay {
+    display: none;
+    color: #8590a6;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    color: #8590a6;
+}
+.cancel-btn:hover {
+    outline: none;
+    color: #333;
+}
+
+.admin-user-comment-item-all-comments-item-function {
+    margin-top: 18px;
+}
+
+.admin-user-comment-item-all-comments-item:hover .admin-user-comment-item-all-comments-item-replay {
+    display: block;
+}
+
+/*商家回复*/
+
+.admin-user-comment-item-your-replay {
+    padding-left: 20px;
 }
