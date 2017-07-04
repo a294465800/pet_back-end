@@ -583,3 +583,9 @@ label {
     height: 30px;
     line-height: 30px;
 }
+
+/*面包屑导航*/
+.admin-breadcrumb {
+    margin: 0!important;
+    background-color: #fff!important;
+}
