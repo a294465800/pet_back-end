@@ -8,9 +8,9 @@ $(function () {
 	//文件上传地址
 	var host = 'http://192.168.3.22:8080/upload'
 
+	//	头像上传
 	if ($('#avatarPicker').html()) {
 
-		//	头像上传
 		// 初始化Web Uploader
 		var avatarUploader = WebUploader.create({
 
@@ -102,8 +102,11 @@ $(function () {
 		$avatarUpload.on('click', function () {
 			avatarUploader.upload(avatar)
 		})
+	}
 
-		//上传商店图片
+	//上传门店图片
+	else if($('#shopImgPicker').html()){
+		console.log($('#shopImgPicker').html())
 		// 初始化Web Uploader
 		var shopImgUploader = WebUploader.create({
 
