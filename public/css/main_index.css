@@ -1,0 +1,248 @@
+/*通用样式*/
+.main-index-page-title {
+    display: inline-block;
+    font: normal 22px "Microsoft YaHei";
+    margin-bottom: 30px;
+    padding: 0 60px 10px;
+    border-bottom: 1px dashed #ff963d;
+    letter-spacing: 5px;
+    color: #000;
+    position: relative;
+    overflow: visible;
+}
+
+.main-index-page-title:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 15px;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -50px;
+    background: #fff url("../images/main/icon/title.png") center center no-repeat;
+    background-size: 30%;
+}
+
+.main-index-page-intro {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/*
+首页导航
+*/
+.main-index-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.main-index-navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.main-index-navbar-item {
+    display: inline-block;
+}
+
+.main-index-navbar-item-head {
+    display: inline-block;
+    height: 60px;
+    padding: 0 30px;
+    color: #FFF;
+    text-decoration: none;
+    font: normal 22px/60px "Microsoft YaHei";
+}
+
+.active .main-index-navbar-item-head {
+    background-color: #fe6464;
+}
+
+.main-index-navbar-item-head:hover, .main-index-navbar-item-head:active, .main-index-navbar-item-head:focus {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-index-navbar-item-head:hover {
+    color: #fe6464;
+}
+
+.active .main-index-navbar-item-head:hover {
+    color: #fff !important;
+}
+
+/*第一页*/
+.main-index-first_page {
+    background: url("../images/main/firstpage_bg.jpg") no-repeat center 60px;
+    background-size: cover;
+}
+
+/*第二页*/
+.main-index-second_page-head {
+    margin-bottom: 50px;
+}
+
+.main-index-second_page-bottom-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.main-index-second_page-bottom-list li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+.main-index-second_page-bottom-list-img {
+    width: 130px;
+    height: 130px;
+    background: #999 url("../images/main/icon/QR.png") center center no-repeat;
+    background-size: 45%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.main-index-second_page-bottom-list p {
+    font-size: 16px;
+    color: #333;
+}
+
+.main-index-second_page-bottom-list li:nth-child(2) .main-index-second_page-bottom-list-img {
+    background: #999 url("../images/main/icon/article.png") center center no-repeat;
+    background-size: 45%;
+
+}
+
+.main-index-second_page-bottom-list li:nth-child(3) .main-index-second_page-bottom-list-img {
+    background: #999 url("../images/main/icon/QR.png") center center no-repeat;
+    background-size: 45%;
+
+}
+
+.main-index-second_page-bottom-list li:nth-child(4) .main-index-second_page-bottom-list-img {
+    background-image: url("../images/main/icon/search.png");
+    background-size: 45%;
+
+}
+
+.main-index-second_page-bottom-list li:hover .main-index-second_page-bottom-list-img {
+    background-color: #ff963d !important;
+}
+
+.main-index-second_page-bottom-list li:hover p {
+    color: #ff963d;
+}
+
+/*第三页*/
+.main-index-third_page {
+    background: url("../images/main/third_page_bg.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.main-index-third_page-head {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+}
+
+.main-index-third_page-head-title {
+    display: inline-block;
+    font: normal 22px "Microsoft YaHei";
+    margin-bottom: 20px;
+    padding: 0 60px 10px;
+    border-bottom: 1px dashed #ff963d;
+    letter-spacing: 5px;
+    color: #000;
+}
+
+.main-index-third_page-us-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.main-index-third_page-us-list li {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #3de0ff;
+    margin: 0 20px;
+    float: left;
+    display: table;
+}
+
+.main-index-third_page-us-list-title {
+    color: #fff;
+    font-size: 18px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.main-index-third_page-us-list li:hover {
+    background-color: #2c9cb2;
+}
+
+.main-index-third_page-us-list li:hover .main-index-third_page-us-list-title {
+    display: none;
+}
+
+.main-index-third_page-us-list-content {
+    display: none;
+    font-size: 13px;
+    color: #fff;
+}
+
+.main-index-third_page-us-list li:hover .main-index-third_page-us-list-content {
+    display: table-cell;
+    height: 100%;
+    padding: 0 14px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.main-index-third_page-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+}
+
+.main-index-third_page-bottom img {
+    display: inline-block;
+    max-width: 700px;
+}
+
+@media (min-height: 800px) {
+    .main-index-third_page-bottom img {
+        max-width: 800px !important;
+    }
+}
+
+@media (min-height: 980px) {
+    .main-index-third_page-bottom img {
+        max-width: 1000px !important;
+    }
+}
+
+/*第四页*/
+.main-index-fourth_page-head-content {
+    width: 100%;
+    padding: 10px 50px;
+}
