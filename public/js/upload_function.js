@@ -106,7 +106,6 @@ $(function () {
 
 	//上传门店图片
 	else if($('#shopImgPicker').html()){
-		console.log($('#shopImgPicker').html())
 		// 初始化Web Uploader
 		var shopImgUploader = WebUploader.create({
 

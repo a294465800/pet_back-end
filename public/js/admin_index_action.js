@@ -134,5 +134,15 @@ $(function () {
 		})
 	})
 
+	//门店图片删除
+	var $shopCancel = $('#admin-img-shopImg-list').find('.admin-img-shopImg-item-cancel')
+	$shopCancel.on('click',function () {
+		console.log(1)
+		var $father = $(this).parents('.admin-img-shopImg-item')
+		if(confirm('确定删除该图片吗？')){
+			$father.remove()
+		}
+	})
+
 
 })
