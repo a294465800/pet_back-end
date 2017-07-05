@@ -98,15 +98,31 @@ $(function () {
 
 	//评论展开事件
 	var $open_comment = $('.admin-user-comment-item-comment-num')
-	// var openComment = false
+
 	$open_comment.on('click',function () {
 		var openComment = $(this).parents('.admin-user-comment-item').find('.admin-user-comment-item-all-comments')
 		if(openComment.css('display') === 'block') {
+			$(this).find('.comment-up').remove()
 			openComment.hide()
 		}else {
+			var $span = $('<span class="comment-up">收起</span>')
 			openComment.show()
+			$(this).append($span)
 		}
-		// openComment = !openComment
+	})
+
+	//阅读全文
+	var $article_all = $('.admin-user-comment-item-article-all')
+	$article_all.on('click',function () {
+		var $father = $(this).siblings('.admin-user-comment-item-article-small')
+		console.log($father)
+		if($father.hasClass('admin-user-comment-item-article-big')){
+			$father.removeClass('admin-user-comment-item-article-big')
+			$(this).html('阅读全文')
+		}else {
+			$father.addClass('admin-user-comment-item-article-big')
+			$(this).html('收起文章')
+		}
 	})
 
 	//回复评论

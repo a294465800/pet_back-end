@@ -622,9 +622,34 @@ label {
     -webkit-box-orient: vertical;
 }
 
-.admin-user-comment-item-head-content:hover {
-    color: #6f6f6f;
-    cursor: pointer;
+.admin-user-comment-item-article-small .img-hide {
+    display: none;
+    text-align: center;
+}
+
+/*文章全展示*/
+.admin-user-comment-item-article-big .admin-user-comment-item-head-img {
+    width: 100%!important;
+}
+
+.admin-user-comment-item-article-big .admin-user-comment-item-head-content {
+    display: block!important;
+    width: 100%!important;
+}
+
+.admin-user-comment-item-article-big .img-hide {
+    width: 100%;
+    display: block;!important;
+}
+.admin-user-comment-item-article-big .img-title-hide {
+    display: none!important;
+}
+
+.admin-user-comment-item-article-big .img-hide-item {
+    width: 200px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
 .admin-user-comment-item-head {
