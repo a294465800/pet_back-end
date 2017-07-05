@@ -6,7 +6,7 @@ $(function () {
 	//swf文件地址
 	var swf = '../public/build/webuploader/Uploader.swf'
 	//文件上传地址
-	var host = 'http://webuploader.duapp.com/server/fileupload.php'
+	var host = 'http://192.168.3.22:8080/upload'
 
 	if ($('#avatarPicker').html()) {
 
@@ -17,7 +17,9 @@ $(function () {
 			// 选完文件后，是否自动上传。
 			auto: false,
 
-			fileVal: 'avatar',
+			fileVal: 'image',
+
+			method: 'POST',
 
 			// swf文件路径
 			swf: swf,
@@ -148,6 +150,7 @@ $(function () {
 					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
 					'<img>' +
 					'<div class="shop-img-item-info">' + file.name + '</div>' +
+					'<span class="glyphicon glyphicon-remove-sign span-del"></span>' +
 					'</div>'
 				),
 				$img = $li.find('img');
@@ -158,7 +161,6 @@ $(function () {
 
 			// 创建缩略图
 			// 如果为非图片文件，可以不用调用此方法。
-			// thumbnailWidth x thumbnailHeight 为 100 x 100
 			var thumbnailWidth = 150, thumbnailHeight = 150
 			shopImgUploader.makeThumb(file, function (error, src) {
 				if (error) {
@@ -168,7 +170,26 @@ $(function () {
 
 				$img.attr('src', src);
 			}, thumbnailWidth, thumbnailHeight);
+
+			//判断当前文件位置
 			shop_img.push(file)
+			for (var i  in shop_img){
+				if(shop_img[i].name === file.name){
+					break
+				}
+			}
+			//为新创建的图片添加事件
+			var $span_del = $('.span-del')
+			var $span_del2 = $($span_del[i])
+
+			$span_del2.on('click',function () {
+				var $father = $(this).parent('.shop-img-item')
+				var index = $father.index()
+				shop_img.splice(index-1,1)
+				$father.remove()
+				shopImgUploader.removeFile(file)
+			})
+
 		});
 
 		//上传结束时触发
@@ -186,9 +207,10 @@ $(function () {
 			console.log('success')
 		})
 
-		//上传头像
+		//上传门店图片
 		var $shopImgUpload = $('#shopImgUpload')
 		$shopImgUpload.on('click', function () {
+			console.log(shop_img)
 			shopImgUploader.upload(shop_img)
 		})
 	}
@@ -370,7 +392,7 @@ $(function () {
 			console.log('success')
 		})
 
-		//上传头像
+		//上传动态图片
 		var $userDynamicUpload = $('#userDynamicUpload')
 		$userDynamicUpload.on('click', function () {
 			userDynamicUploader.upload(userDynamic)

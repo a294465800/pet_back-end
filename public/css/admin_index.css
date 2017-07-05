@@ -725,3 +725,12 @@ label {
 .admin-user-comment-item-your-replay {
     padding-left: 20px;
 }
+
+.span-del {
+    font-size: 30px;
+    color: red;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    cursor: pointer;
+}
