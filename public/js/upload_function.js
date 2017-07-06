@@ -181,10 +181,9 @@ $(function () {
 				}
 			}
 			//为新创建的图片添加事件
-			var $span_del = $('.span-del')
-			var $span_del2 = $($span_del[i])
+			var $span_del = $($('.span-del')[i])
 
-			$span_del2.on('click',function () {
+			$span_del.on('click',function () {
 				var $father = $(this).parent('.shop-img-item')
 				var index = $father.index()
 				shop_img.splice(index-1,1)
@@ -264,6 +263,7 @@ $(function () {
 			var $li = $(
 					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
 					'<img>' +
+					'<span class="glyphicon glyphicon-remove-sign span-del"></span>' +
 					'</div>'
 				),
 				$img = $li.find('img');
@@ -285,6 +285,22 @@ $(function () {
 				$img.attr('src', src);
 			}, thumbnailWidth, thumbnailHeight);
 			commodity.push(file)
+
+			for (var i  in commodity){
+				if(commodity[i].name === file.name){
+					break
+				}
+			}
+			//为新创建的图片添加事件
+			var $span_del = $($('.span-del')[i])
+
+			$span_del.on('click',function () {
+				var $father = $(this).parent('.shop-img-item')
+				var index = $father.index()
+				commodity.splice(index-1,1)
+				$father.remove()
+				commodityUploader.removeFile(file)
+			})
 		});
 
 		//上传结束时触发
@@ -356,6 +372,7 @@ $(function () {
 			var $li = $(
 					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
 					'<img>' +
+					'<span class="glyphicon glyphicon-remove-sign span-del"></span>' +
 					'</div>'
 				),
 				$img = $li.find('img');
@@ -377,6 +394,22 @@ $(function () {
 				$img.attr('src', src);
 			}, thumbnailWidth, thumbnailHeight);
 			userDynamic.push(file)
+
+			for (var i  in userDynamic){
+				if(userDynamic[i].name === file.name){
+					break
+				}
+			}
+			//为新创建的图片添加事件
+			var $span_del = $($('.span-del')[i])
+
+			$span_del.on('click',function () {
+				var $father = $(this).parent('.shop-img-item')
+				var index = $father.index()
+				userDynamic.splice(index-1,1)
+				$father.remove()
+				userDynamicUploader.removeFile(file)
+			})
 		});
 
 		//上传结束时触发
