@@ -15,13 +15,13 @@
     <div class="main-index-brand pull-left">
         <a href="#" class="navbar-brand"><img src="" alt="小主帮" title="小主帮"></a>
     </div>
-    <div class="pull-right">
+    <div class="pull-right hidden-sm">
         <ul class="main-index-navbar" id="navigation">
             <li class="main-index-navbar-item active" data-menuanchor="page1"><a href="#page1" class="main-index-navbar-item-head">小主帮</a></li>
             <li class="main-index-navbar-item" data-menuanchor="page2"><a href="#page2" class="main-index-navbar-item-head">小程序介绍</a></li>
             <li class="main-index-navbar-item" data-menuanchor="page3"><a href="#page3" class="main-index-navbar-item-head">我们产品</a></li>
             <li class="main-index-navbar-item" data-menuanchor="page4"><a href="#page4" class="main-index-navbar-item-head">关于我们</a></li>
-            <li class="main-index-navbar-item" data-menuanchor="page5"><a href="#page5" class="main-index-navbar-item-head">商家后台</a></li>
+            <li class="main-index-navbar-item" data-menuanchor="page5"><a href="#page5" class="main-index-navbar-item-head">入驻报名</a></li>
         </ul>
     </div>
 </header>
@@ -105,20 +105,45 @@
     <section class="section main-index-fourth_page">
         <div class="main-index-fourth_page-head text-center">
             <h3 class="main-index-page-title">权利和义务</h3>
-            <div class="main-index-fourth_page-head-content">
-
+            <div class="main-index-fourth_page-head-content clearfix">
+                <div class="pull-left main-index-fourth_page-head-content-left">
+                    <ul class="main-index-fourth_page-head-content-ul">
+                        <h4>商家可以得到的权利</h4>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>优先推广首批合作商铺</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>免收技术维护费</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>提供小程序</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>公司会根据各宠物店小程序营业指数（算法得出），对商家进行相应推广</li>
+                    </ul>
+                </div>
+                <div class="pull-right main-index-fourth_page-head-content-right">
+                    <ul class="main-index-fourth_page-head-content-ul right-part">
+                        <h4>商家需要承担的义务</h4>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>为打造规模效应：小程序名字必须以 <span class="black">小主帮 — 商户名</span> 的格式，小程序头像使用我司LOGO</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>合作商铺需要店里展示公司提供的海报，声明为合作商铺</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>需要显眼位置摆放店铺小程序二维码</li>
+                        <li><span class="glyphicon glyphicon-triangle-right"></span>合作商铺需提供团购服务，费用应低于店内价格</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="main-index-fourth_page-bottom">
-
+        <div class="main-index-fourth_page-bottom text-center">
+            <h3 class="main-index-page-title">关于我们 — 小主帮</h3>
+            <div></div>
+            <p class="main-index-page-intro">“小主帮”是一个专注于宠物商家与养宠用户的双向服务平台。基于微信这一巨大流量接口，为商家提供免费的店铺小程序，连接周边每一位潜在客户，为用户提供便捷可见的宠物商铺，快速找到需要的宠物店服务。“小主帮”本着合作共赢，互惠互利的理念，共同促进宠物行业的发展。</p>
         </div>
     </section>
     <!--/第四页-->
 
-    <section class="section">
-        <h3>第五屏</h3>
-        <p>这是最后一屏</p>
+    <!--第五页-->
+    <section class="section main-index-fifth_page">
+        <footer class="main-index-fifth_page-footer text-center">
+            <img src="public/images/main/QRcode.png" alt="小主帮公众号二维码" class="main-index-fifth_page-footer-QR">
+            <p class="main-index-page-intro">广州市森乾科技信息有限公司</p>
+            <p class="main-index-page-intro">Copyright &copy; 2017 Sennki All Rights Reserved <a target="_blank" class="footer-link" href="http://www.miitbeian.gov.cn">粤ICP备17065039号-1</a></p>
+        </footer>
     </section>
+    <!--/第五页-->
+
 </section>
 
 <script src="public/js/jquery-3.2.1.min.js"></script>
@@ -126,10 +151,24 @@
 <script>
 	$(function(){
 		$('#main-index-all-page').fullpage({
-			sectionsColor: ['#1bbc9b', '#fff', '#fff', '#fff','#eee'],
+			sectionsColor: ['#1bbc9b', '#fff', '#fff', '#fff','#fff'],
 			anchors: ['page1', 'page2', 'page3', 'page4','page5'],
 			menu: '#navigation'
 		});
+		$(window).resize(function(){
+			autoScrolling();
+		});
+
+		function autoScrolling(){
+			var $ww = $(window).width();
+			if($ww < 1200){
+				$.fn.fullpage.setAutoScrolling(false);
+			} else {
+				$.fn.fullpage.setAutoScrolling(true);
+			}
+		}
+
+		autoScrolling();
 	});
 </script>
 </body>
