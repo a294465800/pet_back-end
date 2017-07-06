@@ -14,9 +14,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 +function ($) {
 
 	Date.prototype.getDays = function() { return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate(); };
-	var months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
-		short_months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-		daysofweek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+	var months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+		short_months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+		daysofweek = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
 
 		DCalendar = function(elem, options) {
 		    this.calendar = $(elem);
@@ -37,9 +37,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			this.maxDate = this.calendar.prev().data('maxdate');
 			
 			if(options.mode === 'calendar')
-				this.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead>');
+				this.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>');
 			else if (options.mode === 'datepicker')
-				this.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead>');
+				this.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>');
 			this.tHead.find('#currM').text(months[this.today.getMonth()] +" " + this.today.getFullYear());
 			this.calendar.prepend(this.tHead);
 			var that = this;
@@ -126,6 +126,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			that.selectDate();
 			that.date = value;
 			that.create(that.viewMode);
+			console.log(value,'value')
 		},
 
 		selectDate : function () {
@@ -138,7 +139,8 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 
 		reformatDate : function (date) {
 			var that = this,
-				format = that.options.format;
+				// format = that.options.format;
+				format = 'yyyy-mm-dd';
 
 			return {
 					m: date.substring(format.indexOf('m'), format.lastIndexOf('m') + 1),
@@ -180,9 +182,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			that.calendar.empty();
 			if(mode === "days") {
 				if(that.options.mode === 'calendar') {
-					that.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead>');
+					that.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>');
 				} else if (that.options.mode === 'datepicker') {
-					that.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead>');
+					that.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="5" id="currM"></th><th id="next">&rsaquo;</th></tr><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>');
 				}
 				that.tHead.find('#currM').text(months[that.date.getMonth()] +" " + that.date.getFullYear());
 				that.calendar.append(that.tHead);
@@ -251,7 +253,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 					tBody.append(row);
 				});
 
-				var sysDate = "Today: " + daysofweek[that.today.getDay()] + ", " + months[that.today.getMonth()] + " " + that.today.getDate() + ", " + that.today.getFullYear();
+				var sysDate = "今天: " + daysofweek[that.today.getDay()] + ", " + months[that.today.getMonth()] + " " + that.today.getDate() + ", " + that.today.getFullYear();
 				tBody.append('<tr><td colspan="7" id="today">' + sysDate + '</td></tr>').appendTo(that.calendar);
 			} else {
 				this.tHead = $('<thead><tr><th id="prev">&lsaquo;</th><th colspan="2" id="currM"></th><th id="next">&rsaquo;</th></tr>');
@@ -268,7 +270,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 					}
 					tBody.append(row);
 				}
-				var sysDate = "Today: " + daysofweek[that.today.getDay()] + ", "+ months[that.today.getMonth()] + " " + that.today.getDate() + ", " + that.today.getFullYear();
+				var sysDate = "今天: " + daysofweek[that.today.getDay()] + ", "+ months[that.today.getMonth()] + " " + that.today.getDate() + ", " + that.today.getFullYear();
 				tBody.append('<tr><td colspan="4" id="today">' + sysDate + '</td></tr>').appendTo(that.calendar);
 			}
 		}

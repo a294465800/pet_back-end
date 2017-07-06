@@ -160,5 +160,29 @@ $(function () {
 		}
 	})
 
+	//预约信息下一天、前一天
+	var $dateDown = $('#dateDown')
+	var $dateUp = $('#dateUp')
+	var $datePicker = $('#datePicker')
+
+	function dayChoose(num) {
+		var day = $datePicker.val().split('-')[2]
+		var today = $datePicker.val().replace(/-/g, '/')
+		var date = new Date(today)
+		date.setDate(parseInt(day) + num)
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		var d = date.getDate();
+		m < 10 ? m = '0' + m : ''
+		d < 10 ? d = '0' + d : ''
+		$datePicker.val(y+"-"+m+"-"+d)
+	}
+	$dateDown.on('click',function () {
+		dayChoose(-1)
+	})
+	$dateUp.on('click',function () {
+		dayChoose(1)
+	})
+
 
 })

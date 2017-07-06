@@ -568,7 +568,6 @@ label {
 
 .admin-commodity-info-order-inline {
     display: inline-block;
-    vertical-align: middle;
     position: absolute;
     right: 20px;
     bottom: 7px;
@@ -796,4 +795,9 @@ label {
     top: -15px;
     right: -15px;
     cursor: pointer;
+}
+
+/*预约信息*/
+.admin-order-info-select {
+    bottom: 14px;
 }

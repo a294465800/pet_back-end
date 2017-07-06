@@ -52,7 +52,7 @@
                    href="#order-list">订单管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="order-list">
                     <li class="admin-navigation-function" id="admin-navigation-function-order-info"><a href="admin_order_info.html" class="admin-navigation-a-btn">预约信息</a></li>
-                    <li class="admin-navigation-function" id="admin-navigation-function-order-handle"><a href="admin_order_handle.html" class="admin-navigation-a-btn">订单处理</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-order-handle"><a href="admin_order_handle.html" class="admin-navigation-a-btn">订单列表</a></li>
                     <li class="admin-navigation-function" id="admin-navigation-function-order-used"><a href="admin_order_used.html" class="admin-navigation-a-btn">团购券核销</a></li>
                 </ul>
             </li>
@@ -100,10 +100,10 @@
                     <thead>
                     <tr>
                         <td class="col-md-3">商品名称</td>
-                        <td class="col-md-2">价格</td>
-                        <td class="col-md-2">销量</td>
-                        <td class="col-md-2">发布时间</td>
-                        <td class="col-md-2">操作</td>
+                        <td class="col-md-2">用户名称</td>
+                        <td class="col-md-2">用户手机</td>
+                        <td class="col-md-2">预约时间</td>
+                        <td class="col-md-2">备注</td>
                         <td class="col-md-1">状态</td>
                     </tr>
                     </thead>
@@ -111,9 +111,9 @@
             </div>
             <div class="admin-commodity-info-function">
                 <button type="button" class="btn  admin-commodity-info-btn" id="dateDown"><span class="glyphicon glyphicon-triangle-left"></span></button>
-                <button type="button" disabled class="btn admin-commodity-info-btn">今天</button>
+                <input type="button" id="datePicker" class="btn admin-commodity-info-btn" value="2017-07-06">
                 <button type="button" class="btn  admin-commodity-info-btn" id="dateUp"><span class="glyphicon glyphicon-triangle-right"></span></button>
-                <div class="admin-commodity-info-order-inline">
+                <div class="admin-commodity-info-order-inline admin-order-info-select">
                     <label class="control-label">排序方式</label>
                     <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
                         <option>1</option>
@@ -125,110 +125,88 @@
             <div class="admin-commodity-info-body">
                 <div class="admin-commodity-info-item">
                     <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">商品编号：12345678910</caption>
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
+                        </caption>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
                                 <span class="admin-commodity-info-item-title-wrap"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
+                            <td class="col-md-2 text-center" title="用户名称">陈先生</td>
+                            <td class="col-md-2 text-center" title="手机号">13254651551</td>
+                            <td class="col-md-2 text-center" title="预约时间">17:30</td>
+                            <td class="col-md-2 text-center" title="备注">无</td>
+                            <td class="col-md-1 text-center commodity_status" title="状态">
                                 <a href="" class="admin-commodity-info-function-link">编辑</a>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="admin-commodity-info-item">
                     <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">商品编号：12345678910</caption>
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
+                        </caption>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
                                 <span class="admin-commodity-info-item-title-wrap"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
+                            <td class="col-md-2 text-center" title="用户名称">陈先生</td>
+                            <td class="col-md-2 text-center" title="手机号">13254651551</td>
+                            <td class="col-md-2 text-center" title="预约时间">17:30</td>
+                            <td class="col-md-2 text-center" title="备注">无</td>
+                            <td class="col-md-1 text-center commodity_status" title="状态">
                                 <a href="" class="admin-commodity-info-function-link">编辑</a>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="admin-commodity-info-item">
                     <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">商品编号：12345678910</caption>
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
+                        </caption>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
                                 <span class="admin-commodity-info-item-title-wrap"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
+                            <td class="col-md-2 text-center" title="用户名称">陈先生</td>
+                            <td class="col-md-2 text-center" title="手机号">13254651551</td>
+                            <td class="col-md-2 text-center" title="预约时间">17:30</td>
+                            <td class="col-md-2 text-center" title="备注">无</td>
+                            <td class="col-md-1 text-center commodity_status" title="状态">
                                 <a href="" class="admin-commodity-info-function-link">编辑</a>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="admin-commodity-info-item">
                     <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">商品编号：12345678910</caption>
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
+                        </caption>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
                                 <span class="admin-commodity-info-item-title-wrap"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
+                            <td class="col-md-2 text-center" title="用户名称">陈先生</td>
+                            <td class="col-md-2 text-center" title="手机号">13254651551</td>
+                            <td class="col-md-2 text-center" title="预约时间">17:30</td>
+                            <td class="col-md-2 text-center" title="备注">无</td>
+                            <td class="col-md-1 text-center commodity_status" title="状态">
                                 <a href="" class="admin-commodity-info-function-link">编辑</a>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="admin-commodity-info-item">
-                    <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">商品编号：12345678910</caption>
-                        <tbody>
-                        <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
-                                <span class="admin-commodity-info-item-title-wrap"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
-                            </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
@@ -275,6 +253,9 @@
 		$order_list.addClass('in')
 		$order_list.parent('.admin-navigation-li').addClass('active')
 		$order_list.find('#admin-navigation-function-order-info').addClass('active')
+		$('#datePicker').dcalendarpicker({
+			format:'yyyy-mm-dd'
+		});
 	})
 </script>
 <!--/预留存放单页面js-->
