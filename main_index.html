@@ -135,9 +135,23 @@
     <!--/第四页-->
 
     <!--第五页-->
-    <section class="section main-index-fifth_page">
-        <footer class="main-index-fifth_page-footer text-center">
-            <img src="public/images/main/QRcode.png" alt="小主帮公众号二维码" class="main-index-fifth_page-footer-QR">
+    <section class="section main-index-fifth_page text-center">
+        <div class="main-index-fifth_page-join">
+            <div class="w1"></div>
+            <div class="w2"></div>
+            <div class="w3"></div>
+            <a class="w4" target="_blank" href="#">加入我们</a>
+        </div>
+        <footer class="main-index-fifth_page-footer text-center clearfix">
+            <div class="main-index-fifth_page-address-wrap">
+                <div class="main-index-fifth_page-address">
+                    <div class="main-index-fifth_page-address-content">
+                        <p class="main-index-page-intro"><span class="glyphicon glyphicon-phone-alt"></span>联系电话：020-31560046</p>
+                        <p class="main-index-page-intro"><span class="glyphicon glyphicon-envelope"></span>地址：广州市番禺区花城创意园2栋122</p>
+                    </div>
+                </div>
+            </div>
+            <img src="public/images/main/QRcode.png" alt="小主帮公众号二维码" class="main-index-fifth_page-footer-QR pull-right">
             <p class="main-index-page-intro">广州市森乾科技信息有限公司</p>
             <p class="main-index-page-intro">Copyright &copy; 2017 Sennki All Rights Reserved <a target="_blank" class="footer-link" href="http://www.miitbeian.gov.cn">粤ICP备17065039号-2</a></p>
         </footer>
@@ -151,7 +165,7 @@
 <script>
 	$(function(){
 		$('#main-index-all-page').fullpage({
-			sectionsColor: ['#1bbc9b', '#fff', '#fff', '#fff','#fff'],
+			sectionsColor: ['#fff', '#fff', '#fff', '#fff','#fff'],
 			anchors: ['page1', 'page2', 'page3', 'page4','page5'],
 			menu: '#navigation'
 		});
