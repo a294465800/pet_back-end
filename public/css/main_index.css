@@ -301,7 +301,9 @@
 }
 
 .main-index-fourth_page-head-content-ul li .black {
-    color: #000;
+    color: #40250f;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .main-index-fourth_page-head-content-left:hover, .main-index-fourth_page-head-content-right:hover {

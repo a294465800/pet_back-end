@@ -29,8 +29,8 @@
             <div class="row">
                 <div class="col-md-4 col-xs-4">
                     <ol class="breadcrumb admin-breadcrumb">
-                        <li>商品管理</li>
-                        <li class="active">添加商品类别</li>
+                        <li>订单管理</li>
+                        <li class="active">预约信息</li>
                     </ol>
                 </div>
             </div>
@@ -94,15 +94,12 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <form action="" class="form-horizontal admin-order-container col-md-5 col-xs-7">
-                <div class="input-group">
-                    <label class="sr-only">添加新的商品类别</label>
-                    <input type="text" class="form-control admin-commodity-input" placeholder="添加新的商品类别">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn admin-btn">添加</button>
-                    </div>
+            <div class="admin-order-info-head">
+                <div class="admin-order-info-head-day-choose">
+                    今天
                 </div>
-            </form>
+                <div class="admin-order-info-head-date-choose"></div>
+            </div>
             <!--/从这里开始不同-->
         </div>
     </div>
@@ -126,10 +123,10 @@
 <script>
 	$(function () {
 		//网页初始化
-		var $commodity_list = $('#commodity-list')
-		$commodity_list.addClass('in')
-		$commodity_list.parent('.admin-navigation-li').addClass('active')
-		$commodity_list.find('#admin-navigation-function-commodity-category').addClass('active')
+		var $order_list = $('#order-list')
+		$order_list.addClass('in')
+		$order_list.parent('.admin-navigation-li').addClass('active')
+		$order_list.find('#admin-navigation-function-order-info').addClass('active')
 	})
 </script>
 <!--/预留存放单页面js-->
