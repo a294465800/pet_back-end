@@ -7,6 +7,12 @@ $(function () {
 	var swf = '../public/build/webuploader/Uploader.swf'
 	//文件上传地址
 	var host = 'http://192.168.3.22:8080/upload'
+	//允许的文件类型
+	var accept = {
+		title: 'Images',
+		extensions: 'gif,jpg,jpeg,bmp,png',
+		mimeTypes: 'image/gif,image/jpeg,image/jpg,image/png,image/bmp'
+	}
 
 	//	头像上传
 	if ($('#avatarPicker').html()) {
@@ -39,11 +45,9 @@ $(function () {
 			},
 
 			// 只允许选择图片文件。
-			accept: {
-				title: 'Images',
-				extensions: 'gif,jpg,jpeg,bmp,png',
-				mimeTypes: 'image/*'
-			},
+			accept: accept,
+
+			//预览图片大小
 			thumb: {
 				width: 300,
 				height: 300,
@@ -132,11 +136,7 @@ $(function () {
 			},
 
 			// 只允许选择图片文件。
-			accept: {
-				title: 'Images',
-				extensions: 'gif,jpg,jpeg,bmp,png',
-				mimeTypes: 'image/*'
-			},
+			accept: accept,
 			thumb: {
 				width: 100,
 				height: 100,
@@ -188,7 +188,7 @@ $(function () {
 				var index = $father.index()
 				shop_img.splice(index-1,1)
 				$father.remove()
-				shopImgUploader.removeFile(file)
+				shopImgUploader.removeFile(file, true)
 			})
 
 		});
@@ -244,11 +244,7 @@ $(function () {
 			},
 
 			// 只允许选择图片文件。
-			accept: {
-				title: 'Images',
-				extensions: 'gif,jpg,jpeg,bmp,png',
-				mimeTypes: 'image/*'
-			},
+			accept: accept,
 			thumb: {
 				width: 100,
 				height: 100,
@@ -353,16 +349,13 @@ $(function () {
 			},
 
 			// 只允许选择图片文件。
-			accept: {
-				title: 'Images',
-				extensions: 'gif,jpg,jpeg,bmp,png',
-				mimeTypes: 'image/*'
-			},
+			accept: accept,
 			thumb: {
 				width: 150,
 				height: 150,
 				crop: true
 			},
+			withCredentials: true  // 支持CORS跨域带cookie
 		});
 
 		// 当有文件添加进来的时候
@@ -409,7 +402,9 @@ $(function () {
 				userDynamic.splice(index-1,1)
 				$father.remove()
 				userDynamicUploader.removeFile(file)
+				userDynamicUploader.cancelFile(file);
 			})
+
 		});
 
 		//上传结束时触发
@@ -428,9 +423,45 @@ $(function () {
 		})
 
 		//上传动态图片
+		function uploadFile(i) {
+			if(userDynamic[i]){
+				userDynamicUploader.upload(userDynamic[i])
+				userDynamicUploader.on('uploadSuccess', function () {
+					uploadFile(userDynamic[i+1])
+				})
+			}else {
+				alert('文件已经全部上传')
+			}
+		}
+		userDynamicUploader.on('uploadBeforeSend', function (obj, data, headers) {
+			// _.extend(headers, {
+			// 	"Origin": "http://localhost:3000",
+			// 	"Access-Control-Request-Method": "POST"
+			// });
+		})
+
+
 		var $userDynamicUpload = $('#userDynamicUpload')
 		$userDynamicUpload.on('click', function () {
-			userDynamicUploader.upload(userDynamic)
+			uploadFile(0)
 		})
+
+		// 文件上传过程中创建进度条实时显示。
+		userDynamicUploader.on( 'uploadProgress', function( file, percentage ) {
+			var $li = $( '#'+file.id ),
+				$percent = $li.find('.progress .progress-bar');
+
+			// 避免重复创建
+			if ( !$percent.length ) {
+				$percent = $('<div class="progress progress-striped active">' +
+					'<div class="progress-bar" role="progressbar" style="width: 0%">' +
+					'</div>' +
+					'</div>').appendTo( $li ).find('.progress-bar');
+			}
+
+			$li.find('p.state').text('上传中');
+
+			$percent.css( 'width', percentage * 100 + '%' );
+		});
 	}
 })

@@ -74,11 +74,15 @@ body, html {
 }
 
 /*登录*/
-.admin-login-part {
+.admin-login-part,.admin-register-part {
     position: absolute;
     width: 420px;
     top: 30%;
     right: 10%;
+}
+
+.admin-register-part {
+    top: 20%;
 }
 
 .login-btn {
