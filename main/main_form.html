@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小主帮后台管理</title>
+    <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/main_index.css">
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="admin-login-bg">
+    <div class="main-index">
+        <div class="main-index-link-wrap">
+            <a href="" class="main-index-link" target="_blank">小主帮首页</a>
+        </div>
+    </div>
+
+    <div class="main-form-wrap text-center">
+        <h1>小主帮 加盟商登记表</h1>
+        <form action="">
+            <div class="main-form-top form-horizontal">
+                <div class="form-group">
+                    <label for="shop_name" class="control-label col-md-2 need">商铺名称：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="shop_name" class="form-control" placeholder="商铺名称（必填）" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shop_address" class="control-label col-md-2 need">地址：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="shop_address" class="form-control" placeholder="商铺地址（必填）" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shop_owner" class="control-label col-md-2 need">联系人：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_owner" class="form-control" placeholder="联系人（必填）" required>
+                    </div>
+                    <label for="shop_owner_tel" class="control-label col-md-2 need">联系电话：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_owner_tel" class="form-control" placeholder="联系电话（必填）" required>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div class="main-form-bottom form-horizontal">
+                <h3>店铺信息</h3>
+                <div class="form-group main-form-radio clearfix">
+                    <label class="control-label col-md-2 need">店铺定位：</label>
+                    <div class="col-md-10 text-left">
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option1" hidden> 住宅社区店
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option2" hidden> 连锁加盟店
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option3" hidden> 大众档单店
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option2" hidden> 高档综合店
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option3" hidden> 户外游乐园
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option1" hidden> 特色店
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shop_members" class="control-label col-md-2">员工数量：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_members" class="form-control" placeholder="员工数量">
+                    </div>
+                    <label for="shop_owner_tel" class="control-label col-md-2">会员数量：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_customs" class="form-control" placeholder="会员数量">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2 need">业务范围：</label>
+                    <div class="col-md-10 text-left">
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>宠物美容
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>宠物洗澡
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>普通寄养
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>宠物训练
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>注射医疗
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>手术医疗
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>活体销售
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>产品销售
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>酒店寄养
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>游泳乐园
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" hidden>自制产品
+                        </label>
+                        <label class="form-inline input_inline">其它
+                            <input type="text" placeholder="其它" class="form-control">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group main-form-radio clearfix">
+                    <label class="control-label col-md-2">公众号：</label>
+                    <div class="col-md-10 text-left">
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option1" hidden> 有，未认证
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <input type="radio" value="option2" hidden> 有，已认证
+                        </label>
+                        <p class="text-right"><a href="" target="_blank">公众号注册流程？</a></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">业务规模：</label>
+                    <div class="col-md-10">
+                        <div class="clearfix">
+                            <label class="control-label col-md-2">可同时寄养</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">犬</div>
+                                    <input type="text" class="form-control text-center" placeholder="数量">
+                                    <div class="input-group-addon">只</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">猫</div>
+                                    <input type="text" class="form-control text-center" placeholder="数量">
+                                    <div class="input-group-addon">只</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix main-form-margin">
+                            <label class="control-label col-md-2">可同时接待</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">宠物洗澡</div>
+                                    <input type="text" class="form-control text-center" placeholder="数量">
+                                    <div class="input-group-addon">只</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">宠物美容</div>
+                                    <input type="text" class="form-control text-center" placeholder="数量">
+                                    <div class="input-group-addon">只</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix main-form-margin">
+                            <label class="control-label col-md-2">每天可接待</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">宠物医疗</div>
+                                    <input type="text" class="form-control text-center" placeholder="数量">
+                                    <div class="input-group-addon">只</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shop_sales" class="control-label col-md-2">月销售额：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_sales" class="form-control" placeholder="月销售额（平均）" required>
+                    </div>
+                    <label for="shop_sales_single" class="control-label col-md-2">客单价：</label>
+                    <div class="col-md-4">
+                        <input type="text" id="shop_sales_single" class="form-control" placeholder="客单价（活体除外）" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">业务占比：</label>
+                    <div class="col-md-10 row">
+                        <div class="clearfix">
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">医疗</div>
+                                    <input type="text" class="form-control text-center" placeholder="百分比">
+                                    <div class="input-group-addon">%</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">服务</div>
+                                    <input type="text" class="form-control text-center" placeholder="百分比">
+                                    <div class="input-group-addon">%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix main-form-margin">
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">活体</div>
+                                    <input type="text" class="form-control text-center" placeholder="百分比">
+                                    <div class="input-group-addon">%</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">产品</div>
+                                    <input type="text" class="form-control text-center" placeholder="百分比">
+                                    <div class="input-group-addon">%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shop_intro" class="control-label col-md-2">店铺简介：</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="" id="shop_intro" cols="30" rows="10" placeholder="选填，可填合作建议"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg main-form-margin login-btn">提交</button>
+            </div>
+        </form>
+
+        <footer class="admin-login-footer">
+            <p class="admin-login-footer-content">Copyright&copy;2017 Sennki All Rights Reserved <a href="http://www.miitbeian.gov.cn" target="_blank" class="admin-login-footer-link">粤ICP备17065039号-1</a></p>
+        </footer>
+    </div>
+
+</div>
+</body>
+</html>

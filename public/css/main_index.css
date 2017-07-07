@@ -17,6 +17,7 @@ body, html {
     position: absolute;
     top: 0;
     right: 30px;
+    z-index: 2;
 }
 
 .main-index-link-wrap {
@@ -74,7 +75,7 @@ body, html {
 }
 
 /*登录*/
-.admin-login-part,.admin-register-part {
+.admin-login-part, .admin-register-part {
     position: absolute;
     width: 420px;
     top: 30%;
@@ -88,6 +89,7 @@ body, html {
 .login-btn {
     color: #fff;
     background-color: #ff963d;
+    border-color: #ff963d;
 }
 
 .login-btn:hover {
@@ -96,10 +98,57 @@ body, html {
     outline: none;
 }
 
-.admin-register-link,.admin-register-link:hover,.admin-register-link:visited,.admin-register-link:focus {
+.admin-register-link, .admin-register-link:hover, .admin-register-link:visited, .admin-register-link:focus {
     text-decoration: none;
 }
 
 .admin-register-link:hover {
     color: #ff963d;
+}
+
+/*加盟登记表*/
+.main-form-wrap {
+    width: 100%;
+    margin-top: 0;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    position: relative;
+}
+
+.main-form-wrap h1 {
+    margin-bottom: 50px;
+    margin-top: 0!important;
+}
+
+.main-form-top, .main-form-bottom {
+    width: 800px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.main-form-bottom {
+    margin-top: 50px;
+}
+
+.main-form-bottom .checkbox-inline {
+    margin-left: 50px;
+}
+
+.need {
+    color: #2b9cb2;
+}
+
+.main-form-radio {
+    margin-bottom: 20px;
+}
+
+.input_inline {
+    margin-left: 50px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.main-form-margin {
+    margin-top: 10px;
 }
