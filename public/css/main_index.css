@@ -72,3 +72,30 @@ body, html {
 .admin-login-footer-link:hover, .admin-login-footer-link:focus {
     color: #ff963d;
 }
+
+/*登录*/
+.admin-login-part {
+    position: absolute;
+    width: 420px;
+    top: 30%;
+    right: 10%;
+}
+
+.login-btn {
+    color: #fff;
+    background-color: #ff963d;
+}
+
+.login-btn:hover {
+    color: #fff;
+    background-color: #e88837;
+    outline: none;
+}
+
+.admin-register-link,.admin-register-link:hover,.admin-register-link:visited,.admin-register-link:focus {
+    text-decoration: none;
+}
+
+.admin-register-link:hover {
+    color: #ff963d;
+}
