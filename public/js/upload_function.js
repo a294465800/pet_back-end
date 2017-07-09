@@ -77,6 +77,7 @@ $(function () {
 			var $li = $(
 					'<div id="' + file.id + '" class="admin-shopInfo-avatar-pre thumbnail">' +
 					'<img>' +
+					'<div class="shop-img-item-info">' + file.name + '</div>' +
 					'</div>'
 				),
 				$img = $li.find('img');
@@ -102,7 +103,8 @@ $(function () {
 
 		//上传结束时触发
 		avatarUploader.on('uploadFinished', function () {
-			alert("头像上传成功！")
+			alert("头像上传完毕！")
+			avatarUploader.reset()
 		})
 
 		avatarUploader.on('uploadError', function (rs) {
@@ -239,6 +241,8 @@ $(function () {
 				var index = $father.index()
 				shop_img.splice(index, 1)
 				$father.remove()
+				shopImgUploader.removeFile(file, true)
+				shopImgUploader.cancelFile(file)
 			})
 
 		});
@@ -270,6 +274,7 @@ $(function () {
 		//上传结束时触发
 		shopImgUploader.on('uploadFinished', function () {
 			alert("文件上传结束！")
+			shopImgUploader.reset()
 			shop_img = []
 			$shop_img_pre.empty()
 		})
@@ -348,6 +353,7 @@ $(function () {
 			var $li = $(
 					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
 					'<img>' +
+					'<div class="shop-img-item-info">' + file.name + '</div>' +
 					'<span class="glyphicon glyphicon-remove-sign span-del"></span>' +
 					'</div>'
 				),
@@ -384,6 +390,8 @@ $(function () {
 				var index = $father.index()
 				commodity.splice(index, 1)
 				$father.remove()
+				commodityUploader.removeFile(file, true)
+				commodityUploader.cancelFile(file)
 			})
 		});
 
@@ -432,6 +440,7 @@ $(function () {
 		//上传结束时触发
 		commodityUploader.on('uploadFinished', function () {
 			alert("文件上传结束！")
+			commodityUploader.reset()
 			commodity = []
 			$commodityList.empty()
 		})
@@ -492,6 +501,7 @@ $(function () {
 			var $li = $(
 					'<div id="' + file.id + '" class="shop-img-item thumbnail">' +
 					'<img>' +
+					'<div class="shop-img-item-info">' + file.name + '</div>' +
 					'<span class="glyphicon glyphicon-remove-sign span-del"></span>' +
 					'</div>'
 				),
@@ -528,6 +538,8 @@ $(function () {
 				var index = $father.index()
 				userDynamic.splice(index, 1)
 				$father.remove()
+				userDynamicUploader.removeFile(file, true)
+				userDynamicUploader.cancelFile(file)
 			})
 
 		});
@@ -535,6 +547,7 @@ $(function () {
 		//上传结束时触发
 		userDynamicUploader.on('uploadFinished', function () {
 			alert("文件上传结束！")
+			userDynamicUploader.reset()
 			userDynamic = []
 			$user_dynamicList.empty()
 		})
