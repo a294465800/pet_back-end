@@ -6,12 +6,26 @@ $(function () {
 	//swf文件地址
 	var swf = '../public/build/webuploader/Uploader.swf'
 	//文件上传地址
-	var host = 'http://192.168.3.22:8080/upload'
+	var host = 'http://webuploader.duapp.com/server/fileupload.php'
+	// 'http://192.168.3.22:8080/upload'
 	//允许的文件类型
 	var accept = {
 		title: 'Images',
 		extensions: 'gif,jpg,jpeg,bmp,png',
 		mimeTypes: 'image/gif,image/jpeg,image/jpg,image/png,image/bmp'
+	}
+
+	//递归上传函数
+
+	function uploadFile(uploader, files, i) {
+		if (files[i]) {
+			uploader.upload(files[i])
+			uploader.on('uploadSuccess', function () {
+				uploadFile(files[i + 1])
+			})
+		} else {
+			alert('文件已经全部上传')
+		}
 	}
 
 	//	头像上传
@@ -88,7 +102,7 @@ $(function () {
 
 		//上传结束时触发
 		avatarUploader.on('uploadFinished', function () {
-			console.log('finish')
+			alert("头像上传成功！")
 		})
 
 		avatarUploader.on('uploadError', function (rs) {
@@ -96,10 +110,47 @@ $(function () {
 			console.log('错误')
 		})
 
-		avatarUploader.on('uploadSuccess', function (rs) {
-			console.log(rs)
-			console.log('success')
-		})
+		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+		avatarUploader.on('uploadSuccess', function (file, res) {
+			$('#' + file.id).addClass('upload-state-done');
+			console.log(res)
+		});
+
+		// 文件上传失败，显示上传出错。
+		avatarUploader.on('uploadError', function (file) {
+			var $li = $('#' + file.id),
+				$error = $li.find('div.error');
+
+			// 避免重复创建
+			if (!$error.length) {
+				$error = $('<div class="error"></div>').appendTo($li);
+			}
+
+			$error.text('上传失败');
+		});
+
+		// 完成上传完了，成功或者失败，先删除进度条。
+		avatarUploader.on('uploadComplete', function (file) {
+			$('#' + file.id).find('.progress').remove();
+		});
+
+		// 文件上传过程中创建进度条实时显示。
+		avatarUploader.on('uploadProgress', function (file, percentage) {
+			var $li = $('#' + file.id),
+				$percent = $li.find('.progress .progress-bar');
+
+			// 避免重复创建
+			if (!$percent.length) {
+				$percent = $('<div class="progress progress-striped active">' +
+					'<div class="progress-bar" role="progressbar" style="width: 0%">' +
+					'</div>' +
+					'</div>').appendTo($li).find('.progress-bar');
+			}
+
+			$li.find('p.state').text('上传中');
+
+			$percent.css('width', percentage * 100 + '%');
+		});
 
 		//上传头像
 		var $avatarUpload = $('#avatarUpload')
@@ -109,7 +160,7 @@ $(function () {
 	}
 
 	//上传门店图片
-	else if($('#shopImgPicker').html()){
+	else if ($('#shopImgPicker').html()) {
 		// 初始化Web Uploader
 		var shopImgUploader = WebUploader.create({
 
@@ -175,27 +226,52 @@ $(function () {
 
 			//判断当前文件位置
 			shop_img.push(file)
-			for (var i  in shop_img){
-				if(shop_img[i].name === file.name){
+			for (var i  in shop_img) {
+				if (shop_img[i].name === file.name) {
 					break
 				}
 			}
 			//为新创建的图片添加事件
 			var $span_del = $($('.span-del')[i])
 
-			$span_del.on('click',function () {
+			$span_del.on('click', function () {
 				var $father = $(this).parent('.shop-img-item')
 				var index = $father.index()
-				shop_img.splice(index-1,1)
+				shop_img.splice(index, 1)
 				$father.remove()
-				shopImgUploader.removeFile(file, true)
 			})
 
 		});
 
+		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+		shopImgUploader.on('uploadSuccess', function (file, res) {
+			$('#' + file.id).addClass('upload-state-done');
+			console.log(res)
+		});
+
+		// 文件上传失败，显示上传出错。
+		shopImgUploader.on('uploadError', function (file) {
+			var $li = $('#' + file.id),
+				$error = $li.find('div.error');
+
+			// 避免重复创建
+			if (!$error.length) {
+				$error = $('<div class="error"></div>').appendTo($li);
+			}
+
+			$error.text('上传失败');
+		});
+
+		// 完成上传完了，成功或者失败，先删除进度条。
+		shopImgUploader.on('uploadComplete', function (file) {
+			$('#' + file.id).find('.progress').remove();
+		});
+
 		//上传结束时触发
 		shopImgUploader.on('uploadFinished', function () {
-			console.log('finish')
+			alert("文件上传结束！")
+			shop_img = []
+			$shop_img_pre.empty()
 		})
 
 		shopImgUploader.on('uploadError', function (rs) {
@@ -203,16 +279,29 @@ $(function () {
 			console.log('错误')
 		})
 
-		shopImgUploader.on('uploadSuccess', function (rs) {
-			console.log(rs)
-			console.log('success')
-		})
+		// 文件上传过程中创建进度条实时显示。
+		shopImgUploader.on('uploadProgress', function (file, percentage) {
+			var $li = $('#' + file.id),
+				$percent = $li.find('.progress .progress-bar');
+
+			// 避免重复创建
+			if (!$percent.length) {
+				$percent = $('<div class="progress progress-striped active">' +
+					'<div class="progress-bar" role="progressbar" style="width: 0%">' +
+					'</div>' +
+					'</div>').appendTo($li).find('.progress-bar');
+			}
+
+			$li.find('p.state').text('上传中');
+
+			$percent.css('width', percentage * 100 + '%');
+		});
 
 		//上传门店图片
+
 		var $shopImgUpload = $('#shopImgUpload')
 		$shopImgUpload.on('click', function () {
-			console.log(shop_img)
-			shopImgUploader.upload(shop_img)
+			uploadFile(shopImgUploader, shop_img, 0)
 		})
 	}
 
@@ -282,26 +371,69 @@ $(function () {
 			}, thumbnailWidth, thumbnailHeight);
 			commodity.push(file)
 
-			for (var i  in commodity){
-				if(commodity[i].name === file.name){
+			for (var i  in commodity) {
+				if (commodity[i].name === file.name) {
 					break
 				}
 			}
 			//为新创建的图片添加事件
 			var $span_del = $($('.span-del')[i])
 
-			$span_del.on('click',function () {
+			$span_del.on('click', function () {
 				var $father = $(this).parent('.shop-img-item')
 				var index = $father.index()
-				commodity.splice(index-1,1)
+				commodity.splice(index, 1)
 				$father.remove()
-				commodityUploader.removeFile(file)
 			})
+		});
+
+		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+		commodityUploader.on('uploadSuccess', function (file, res) {
+			$('#' + file.id).addClass('upload-state-done');
+			console.log(res)
+		});
+
+		// 文件上传失败，显示上传出错。
+		commodityUploader.on('uploadError', function (file) {
+			var $li = $('#' + file.id),
+				$error = $li.find('div.error');
+
+			// 避免重复创建
+			if (!$error.length) {
+				$error = $('<div class="error"></div>').appendTo($li);
+			}
+
+			$error.text('上传失败');
+		});
+
+		// 完成上传完了，成功或者失败，先删除进度条。
+		commodityUploader.on('uploadComplete', function (file) {
+			$('#' + file.id).find('.progress').remove();
+		});
+
+		// 文件上传过程中创建进度条实时显示。
+		commodityUploader.on('uploadProgress', function (file, percentage) {
+			var $li = $('#' + file.id),
+				$percent = $li.find('.progress .progress-bar');
+
+			// 避免重复创建
+			if (!$percent.length) {
+				$percent = $('<div class="progress progress-striped active">' +
+					'<div class="progress-bar" role="progressbar" style="width: 0%">' +
+					'</div>' +
+					'</div>').appendTo($li).find('.progress-bar');
+			}
+
+			$li.find('p.state').text('上传中');
+
+			$percent.css('width', percentage * 100 + '%');
 		});
 
 		//上传结束时触发
 		commodityUploader.on('uploadFinished', function () {
-			console.log('finish')
+			alert("文件上传结束！")
+			commodity = []
+			$commodityList.empty()
 		})
 
 		commodityUploader.on('uploadError', function (rs) {
@@ -309,20 +441,15 @@ $(function () {
 			console.log('错误')
 		})
 
-		commodityUploader.on('uploadSuccess', function (rs) {
-			console.log(rs)
-			console.log('success')
-		})
-
-		//上传头像
+		//上传
 		var $commodityUpload = $('#commodityUpload')
 		$commodityUpload.on('click', function () {
-			commodityUploader.upload(commodity)
+			uploadFile(commodityUploader, commodity, 0)
 		})
 	}
 
 	//	动态上传
-	else if($('#userDynamicPicker').html()){
+	else if ($('#userDynamicPicker').html()) {
 		// 初始化Web Uploader
 		var userDynamicUploader = WebUploader.create({
 
@@ -388,28 +515,28 @@ $(function () {
 			}, thumbnailWidth, thumbnailHeight);
 			userDynamic.push(file)
 
-			for (var i  in userDynamic){
-				if(userDynamic[i].name === file.name){
+			for (var i  in userDynamic) {
+				if (userDynamic[i].name === file.name) {
 					break
 				}
 			}
 			//为新创建的图片添加事件
 			var $span_del = $($('.span-del')[i])
 
-			$span_del.on('click',function () {
+			$span_del.on('click', function () {
 				var $father = $(this).parent('.shop-img-item')
 				var index = $father.index()
-				userDynamic.splice(index-1,1)
+				userDynamic.splice(index, 1)
 				$father.remove()
-				userDynamicUploader.removeFile(file)
-				userDynamicUploader.cancelFile(file);
 			})
 
 		});
 
 		//上传结束时触发
 		userDynamicUploader.on('uploadFinished', function () {
-			console.log('finish')
+			alert("文件上传结束！")
+			userDynamic = []
+			$user_dynamicList.empty()
 		})
 
 		userDynamicUploader.on('uploadError', function (rs) {
@@ -417,51 +544,51 @@ $(function () {
 			console.log('错误')
 		})
 
-		userDynamicUploader.on('uploadSuccess', function (rs) {
-			console.log(rs)
-			console.log('success')
-		})
+		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+		userDynamicUploader.on('uploadSuccess', function (file, res) {
+			$('#' + file.id).addClass('upload-state-done');
+			console.log(res)
+		});
 
-		//上传动态图片
-		function uploadFile(i) {
-			if(userDynamic[i]){
-				userDynamicUploader.upload(userDynamic[i])
-				userDynamicUploader.on('uploadSuccess', function () {
-					uploadFile(userDynamic[i+1])
-				})
-			}else {
-				alert('文件已经全部上传')
+		// 文件上传失败，显示上传出错。
+		userDynamicUploader.on('uploadError', function (file) {
+			var $li = $('#' + file.id),
+				$error = $li.find('div.error');
+
+			// 避免重复创建
+			if (!$error.length) {
+				$error = $('<div class="error"></div>').appendTo($li);
 			}
-		}
-		userDynamicUploader.on('uploadBeforeSend', function (obj, data, headers) {
-			// _.extend(headers, {
-			// 	"Origin": "http://localhost:3000",
-			// 	"Access-Control-Request-Method": "POST"
-			// });
-		})
 
+			$error.text('上传失败');
+		});
+
+		// 完成上传完了，成功或者失败，先删除进度条。
+		userDynamicUploader.on('uploadComplete', function (file) {
+			$('#' + file.id).find('.progress').remove();
+		});
 
 		var $userDynamicUpload = $('#userDynamicUpload')
 		$userDynamicUpload.on('click', function () {
-			uploadFile(0)
+			uploadFile(userDynamicUploader, userDynamic, 0)
 		})
 
 		// 文件上传过程中创建进度条实时显示。
-		userDynamicUploader.on( 'uploadProgress', function( file, percentage ) {
-			var $li = $( '#'+file.id ),
+		userDynamicUploader.on('uploadProgress', function (file, percentage) {
+			var $li = $('#' + file.id),
 				$percent = $li.find('.progress .progress-bar');
 
 			// 避免重复创建
-			if ( !$percent.length ) {
+			if (!$percent.length) {
 				$percent = $('<div class="progress progress-striped active">' +
 					'<div class="progress-bar" role="progressbar" style="width: 0%">' +
 					'</div>' +
-					'</div>').appendTo( $li ).find('.progress-bar');
+					'</div>').appendTo($li).find('.progress-bar');
 			}
 
 			$li.find('p.state').text('上传中');
 
-			$percent.css( 'width', percentage * 100 + '%' );
+			$percent.css('width', percentage * 100 + '%');
 		});
 	}
 })

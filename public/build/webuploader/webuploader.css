@@ -27,4 +27,15 @@
 	pointer-events:none;
 }
 
+.upload-state-done:after {
+	background-color: rgba(43,155,11,.8);
+	content: '上传成功';
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
 
