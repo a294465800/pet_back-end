@@ -798,6 +798,15 @@ label {
     cursor: pointer;
 }
 
+.admin-commodity-category-delete {
+    color: #fff;
+}
+
+.admin-commodity-category-delete:hover,.admin-commodity-category-delete:visited,.admin-commodity-category-delete:focus {
+    text-decoration: none;
+    color: #fff;
+}
+
 /*预约信息*/
 .admin-order-info-select {
     bottom: 14px;

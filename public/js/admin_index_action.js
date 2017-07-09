@@ -184,5 +184,41 @@ $(function () {
 		dayChoose(1)
 	})
 
+	//添加商品类别
+	//删除提示
+	var $commodity_category_delete = $('.admin-commodity-category-delete')
 
+	$commodity_category_delete.on('click', function () {
+		if (confirm("确定删除该类别吗？")){
+		}else {
+			return false
+		}
+	})
+
+	//修改类别
+	var $commodity_category_change = $('.admin-commodity-category-change')
+
+	$commodity_category_change.on('click', function () {
+		var div = $(this).parent().prev().find('div')
+		var input = $(this).parent().prev().find('input')
+
+		if ($(this).text() === '修改') {
+			div.addClass('hidden')
+			input.removeClass('hidden')
+			$(this).text('保存')
+		}else {
+			var value = input.val()
+			if (!value){
+				alert('请输入修改后的类名！')
+				return false
+			}
+			div.text(value)
+			div.removeClass('hidden')
+			input.addClass('hidden')
+			$(this).text('修改')
+		}
+
+		//获取input 上的id得知当前类别id，用于向服务端反馈修改的数据
+		//input.data('id')
+	})
 })

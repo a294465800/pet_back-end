@@ -30,7 +30,7 @@
                 <div class="col-md-4 col-xs-4">
                     <ol class="breadcrumb admin-breadcrumb">
                         <li>商品管理</li>
-                        <li class="active">添加商品类别</li>
+                        <li class="active">商品类别管理</li>
                     </ol>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <li class="admin-navigation-li">
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#commodity-list">商品管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="commodity-list">
-                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-category"><a href="admin_commodity_category.html" class="admin-navigation-a-btn">添加商品类别</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-category"><a href="admin_commodity_category.html" class="admin-navigation-a-btn">商品类别管理</a></li>
                     <li class="admin-navigation-function" id="admin-navigation-function-commodity-add"><a href="admin_commodity_add.html" class="admin-navigation-a-btn">发布新商品</a></li>
                     <li class="admin-navigation-function" id="admin-navigation-function-commodity-list"><a href="admin_commodity_list.html" class="admin-navigation-a-btn">商品查询</a></li>
                 </ul>
@@ -90,6 +90,48 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
+            <div class="container-fluid admin-commodity-info-head">
+                <table class="table table-bordered table-hover">
+                    <thead class="admin-commodity-info-head-table">
+                        <tr>
+                            <td class="col-md-5">类别名称</td>
+                            <td class="col-md-7">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-5 text-center form-group">
+                                <div>狗狗</div>
+                                <input type="text" value="狗狗" class="form-control admin-commodity-input hidden" placeholder="输入商品类别" data-id="123124">
+                            </td>
+                            <td class="col-md-7 text-right">
+                                <button class="btn admin-btn"><a href="https://www.baidu.com" class="admin-commodity-category-delete">删除</a></button>
+                                <button class="btn admin-btn admin-commodity-category-change">修改</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-5 text-center form-group">
+                                <div>222</div>
+                                <input type="text" value="222" class="form-control admin-commodity-input hidden" placeholder="输入商品类别" data-id="123124">
+                            </td>
+                            <td class="col-md-7 text-right">
+                                <button class="btn admin-btn"><a href="https://www.baidu.com" class="admin-commodity-category-delete">删除</a></button>
+                                <button class="btn admin-btn admin-commodity-category-change">修改</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-5 text-center form-group">
+                                <div>猪</div>
+                                <input type="text" value="猪" class="form-control admin-commodity-input hidden" placeholder="输入商品类别" data-id="123124">
+                            </td>
+                            <td class="col-md-7 text-right">
+                                <button class="btn admin-btn"><a href="https://www.baidu.com" class="admin-commodity-category-delete">删除</a></button>
+                                <button class="btn admin-btn admin-commodity-category-change">修改</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <form action="" class="form-horizontal admin-order-container col-md-5 col-xs-7">
                 <div class="input-group">
                     <label class="sr-only">添加新的商品类别</label>
