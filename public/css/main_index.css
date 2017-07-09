@@ -152,3 +152,7 @@ body, html {
 .main-form-margin {
     margin-top: 10px;
 }
+
+#shop_intro {
+    resize: vertical;
+}
