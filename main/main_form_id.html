@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小主帮后台管理</title>
+    <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/main_index.css">
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="admin-login-bg">
+    <div class="main-index">
+        <div class="main-index-link-wrap">
+            <a href="" class="main-index-link" target="_blank">小主帮首页</a>
+        </div>
+    </div>
+
+    <div class="main-form-wrap text-center">
+        <h1>小程序需要的数据</h1>
+        <form>
+            <div class="main-form-top form-horizontal">
+                <div class="form-group">
+                    <label for="APPID" class="control-label col-md-2 need">APPID：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="APPID" class="form-control" placeholder="小程序的APPID" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="APPsecret" class="control-label col-md-2 need">APPsecret：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="APPsecret" class="form-control" placeholder="小程序的secret" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mch_id" class="control-label col-md-2 need">商户ID：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="mch_id" class="form-control" placeholder="商户ID" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="APIkey" class="control-label col-md-2 need">API密钥：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="APIkey" class="form-control" placeholder="API密钥" required>
+                    </div>
+                </div>
+                <p class="text-right form-id-p">
+                    <a href="main_account_apply.html" target="_blank">公众号注册小程序流程</a>
+                    <a href="main_shop_account_apply.html" target="_blank">开通微信商户账号流程</a>
+                </p>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg main-form-margin login-btn">提交</button>
+            </div>
+        </form>
+    </div>
+    <footer class="admin-login-footer">
+        <p class="admin-login-footer-content">Copyright&copy;2017 Sennki All Rights Reserved <a href="http://www.miitbeian.gov.cn" target="_blank" class="admin-login-footer-link">粤ICP备17065039号-1</a></p>
+    </footer>
+</div>
+<script src="../public/js/main_form.js"></script>
+</body>
+</html>

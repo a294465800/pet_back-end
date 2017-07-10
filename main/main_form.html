@@ -6,6 +6,7 @@
     <title>小主帮后台管理</title>
     <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/main_index.css">
+    <link rel="stylesheet" href="../public/build/webuploader/webuploader.css">
     <script src="../public/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -50,28 +51,22 @@
                     <label class="control-label col-md-2 need">店铺定位：</label>
                     <div class="col-md-10 text-left">
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="1"> 住宅社区店
+                            <input type="radio" name="shop_type" value="1"> 住宅社区店
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="2"> 连锁加盟店
+                            <input type="radio" name="shop_type" value="2"> 连锁加盟店
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="3"> 大众档单店
+                            <input type="radio" name="shop_type" value="3"> 大众档单店
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="4"> 高档综合店
+                            <input type="radio" name="shop_type" value="4"> 高档综合店
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="5"> 户外游乐园
+                            <input type="radio" name="shop_type" value="5"> 户外游乐园
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" hidden name="shop_type" value="6"> 特色店
+                            <input type="radio" name="shop_type" value="6"> 特色店
                         </label>
                     </div>
                 </div>
@@ -141,12 +136,10 @@
                     <label class="control-label col-md-2">公众号：</label>
                     <div class="col-md-10 text-left" id="shop_accounts">
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" value="1" hidden name="shop_accounts"> 有，未认证
+                            <input type="radio" value="1" name="shop_accounts"> 有，未认证
                         </label>
                         <label class="checkbox-inline">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <input type="radio" value="2" hidden name="shop_accounts"> 有，已认证
+                            <input type="radio" value="2" name="shop_accounts"> 有，已认证
                         </label>
                         <p class="text-right"><a href="" target="_blank">公众号注册流程？</a></p>
                     </div>
@@ -253,6 +246,19 @@
                         <textarea class="form-control" name="" id="shop_intro" cols="30" rows="10" placeholder="选填，可填合作建议"></textarea>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">营业执照：</label>
+                    <div class="col-md-10">
+                        <div id="shop_license" class="wu-example">
+                            <!--用来存放文件信息-->
+                            <div id="shop_license_list" class="uploader-list text-left"></div>
+                            <div class="text-left">
+                                <div id="shop_license_picker">选择文件</div>
+                                <button id="ctlBtn" class="btn btn-default">开始上传</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary btn-lg main-form-margin login-btn" id="main_form_sub">提交</button>
@@ -264,6 +270,7 @@
         </footer>
     </div>
 </div>
+<script src="../public/build/webuploader/webuploader.js"></script>
 <script src="../public/js/main_form.js"></script>
 </body>
 </html>
