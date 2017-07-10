@@ -158,7 +158,24 @@ body, html {
 }
 
 /*审核*/
+.check-wrap {
+    padding: 20px 0 100px;
+    position: relative;
+}
+
 .check_bg {
     background-color: rgba(0,0,0,.2);
     margin-top: 100px;
+}
+
+/*公众号流程*/
+.check-procedure {
+    min-width: 900px;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+.check-title {
+    font-size: 20px;
+    margin-top: 50px;
 }
