@@ -217,8 +217,20 @@ $(function () {
 			input.addClass('hidden')
 			$(this).text('修改')
 		}
+	})
+	
+	//评论管理回复
+	var $commodity_comment_reply = $('.commodity_comment_reply')
 
-		//获取input 上的id得知当前类别id，用于向服务端反馈修改的数据
-		//input.data('id')
+	$commodity_comment_reply.on('click',function () {
+		var $father = $(this).parents('.admin-commodity-comment-wrap')
+		var value = $father.find('input').val()
+		var $add_div = $father.find('.admin-commodity-comment-part')
+		if(confirm("是否回复该用户？")){
+			var $add = $('<div class="shop_comment">商家：' + value +'</div>')
+			$add_div.append($add)
+		}else {
+			return false
+		}
 	})
 })

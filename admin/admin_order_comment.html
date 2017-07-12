@@ -30,17 +30,17 @@
             <div class="row">
                 <div class="col-md-4 col-xs-4">
                     <ol class="breadcrumb admin-breadcrumb">
-                        <li>商品管理</li>
-                        <li class="active">商品查询</li>
+                        <li>订单管理</li>
+                        <li class="active">订单评论管理</li>
                     </ol>
                 </div>
-                <div class=" pull-right col-lg-4 col-md-5 col-xs-11 col-sm-7">
+                <div class="pull-right col-lg-4 col-md-5 col-xs-11 col-sm-7">
                     <div class="form-group">
-                        <label class="sr-only" aria-label="search commodity"></label>
+                        <label class="sr-only" aria-label="search order"></label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <label class="sr-only">select options</label>
-                                <select class="form-inline search-select" title="查询类别" id="commoditySearch">
+                                <select class="form-inline search-select" title="查询类别" id="orderSearch">
                                     <option>id</option>
                                     <option>狗狗</option>
                                     <option>商品名称</option>
@@ -114,178 +114,133 @@
                 <table class="table admin-commodity-info-head-table table-responsive">
                     <thead>
                     <tr>
-                        <td class="col-md-3">商品名称</td>
-                        <td class="col-md-2">价格</td>
-                        <td class="col-md-2">销量</td>
-                        <td class="col-md-2">发布时间</td>
-                        <td class="col-md-2">操作</td>
-                        <td class="col-md-1">状态</td>
+                        <td class="col-md-4">商品名称</td>
+                        <td class="col-md-2">买家</td>
+                        <td class="col-md-3">评论时间</td>
+                        <td class="col-md-3">评分</td>
                     </tr>
                     </thead>
                 </table>
             </div>
-            <div class="admin-commodity-info-function">
-                <div class="checkbox-inline" id="all_commodity">
-                    <label class="sr-only">全选</label>
-                    <input type="checkbox" name="all_commodity">全选
-                </div>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityDel">删除</button>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityUp">上架</button>
-                <button type="button" class="btn  admin-commodity-info-btn" id="commodityDown">下架</button>
-                <div class="admin-commodity-info-order-inline">
-                    <label class="control-label">排序方式</label>
-                    <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
+            <div class="admin-commodity-info-function admin-commodity-info-function-order-way">
+                <label class="control-label">排序方式</label>
+                <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
             </div>
             <div class="admin-commodity-info-body">
-                <div class="admin-commodity-info-item">
+                <div class="admin-commodity-info-item clearfix">
                     <table class="table table-responsive">
                         <caption class="admin-commodity-info-item-id">
-                            <div class="checkbox-inline">
-                                <label>
-                                    <input type="checkbox" class="commodity-id">商品编号：12345678910
-                                </label>
-                            </div>
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
                         </caption>
                         <tbody>
                         <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
+                            <td class="col-md-4 admin-commodity-info-name row" title="商品名称">
                                 <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
+                                <span class="admin-commodity-info-item-title-wrap col-md-8">猫咪洗澡</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            <td class="col-md-2 text-center" title="买家">
+                                <span class="admin-commodity-info-people">爱吃鱼的猫</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
+                            <td class="col-md-3 text-center" title="评论时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-3 text-center" title="评分">
+                                <span class="admin-commodity-info-price-r">3</span>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
+                    <div class="col-md-12 admin-commodity-comment-wrap">
+                        <div class="admin-commodity-comment-part">
+                            <div class="custom_comment">爱吃鱼的猫：心情好啊！！！</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">商家回复</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn admin-btn commodity_comment_reply">回复</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="admin-commodity-info-item">
+                <div class="admin-commodity-info-item clearfix">
                     <table class="table table-responsive">
                         <caption class="admin-commodity-info-item-id">
-                            <div class="checkbox-inline">
-                                <label>
-                                    <input type="checkbox" class="commodity-id">商品编号：12345678910
-                                </label>
-                            </div>
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
                         </caption>
                         <tbody>
                         <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
+                            <td class="col-md-4 admin-commodity-info-name row" title="商品名称">
                                 <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
+                                <span class="admin-commodity-info-item-title-wrap col-md-8">猫咪洗澡</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            <td class="col-md-2 text-center" title="买家">
+                                <span class="admin-commodity-info-people">爱吃鱼的猫</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
+                            <td class="col-md-3 text-center" title="评论时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-3 text-center" title="评分">
+                                <span class="admin-commodity-info-price-r">3</span>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
+                    <div class="col-md-12 admin-commodity-comment-wrap">
+                        <div class="admin-commodity-comment-part">
+                            <div class="custom_comment">爱吃鱼的猫：心情好啊！！！</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">商家回复</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn admin-btn commodity_comment_reply">回复</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="admin-commodity-info-item">
+                <div class="admin-commodity-info-item clearfix">
                     <table class="table table-responsive">
                         <caption class="admin-commodity-info-item-id">
-                            <div class="checkbox-inline">
-                                <label>
-                                    <input type="checkbox" class="commodity-id">商品编号：12345678910
-                                </label>
-                            </div>
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-info-item-caption">订单日期：2017-06-24&nbsp;&nbsp;17:30</span>
                         </caption>
                         <tbody>
                         <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
+                            <td class="col-md-4 admin-commodity-info-name row" title="商品名称">
                                 <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
+                                <span class="admin-commodity-info-item-title-wrap col-md-8">猫咪洗澡</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            <td class="col-md-2 text-center" title="买家">
+                                <span class="admin-commodity-info-people">爱吃鱼的猫</span>
                             </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
+                            <td class="col-md-3 text-center" title="评论时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-3 text-center" title="评分">
+                                <span class="admin-commodity-info-price-r">3</span>
                             </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
                         </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="admin-commodity-info-item">
-                    <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">
-                            <div class="checkbox-inline">
-                                <label>
-                                    <input type="checkbox" class="commodity-id">商品编号：12345678910
-                                </label>
+                    <div class="col-md-12 admin-commodity-comment-wrap">
+                        <div class="admin-commodity-comment-part">
+                            <div class="custom_comment">爱吃鱼的猫：心情好啊！！！</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">商家回复</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn admin-btn commodity_comment_reply">回复</button>
+                                </div>
                             </div>
-                        </caption>
-                        <tbody>
-                        <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
-                                <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
-                            </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="admin-commodity-info-item">
-                    <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">
-                            <div class="checkbox-inline">
-                                <label>
-                                    <input type="checkbox" class="commodity-id">商品编号：12345678910
-                                </label>
-                            </div>
-                        </caption>
-                        <tbody>
-                        <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="商品标题">
-                                <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品价格">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="商品销量">230件</td>
-                            <td class="col-md-2 text-center" title="发布时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="操作">
-                                <a href="" class="admin-commodity-info-function-link">编辑</a>
-                            </td>
-                            <td class="col-md-1 text-center commodity_status" title="商品状态">出售中</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container-fluid admin-commodity-info-page-container">
@@ -327,17 +282,17 @@
 <script>
 	$(function () {
 		//网页初始化
-		var $commodity_list = $('#commodity-list')
-		$commodity_list.addClass('in')
-		$commodity_list.parent('.admin-navigation-li').addClass('active')
-		$commodity_list.find('#admin-navigation-function-commodity-list').addClass('active')
+		var $order_list = $('#order-list')
+		$order_list.addClass('in')
+		$order_list.parent('.admin-navigation-li').addClass('active')
+		$order_list.find('#admin-navigation-function-order-comment').addClass('active')
 	})
-	$('#commoditySearch').selectize({
+	$('#orderSearch').selectize({
 		create: true,
 		sortField: 'text'
 	});
 	$('#order_list_way').selectize({
-	create: true,
+		create: true,
 		sortField: 'text'
 	});
 </script>
