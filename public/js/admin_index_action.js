@@ -226,6 +226,10 @@ $(function () {
 		var $father = $(this).parents('.admin-commodity-comment-wrap')
 		var value = $father.find('input').val()
 		var $add_div = $father.find('.admin-commodity-comment-part')
+		if(!value){
+			alert('请输入回复内容！')
+			return false
+		}
 		if(confirm("是否回复该用户？")){
 			var $add = $('<div class="shop_comment">商家：' + value +'</div>')
 			$add_div.append($add)
