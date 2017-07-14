@@ -125,8 +125,9 @@ $(function () {
 		}
 	})
 
-	//回复评论
+	//动态回复评论
 	var $replay_comment = $('.admin-user-comment-item-all-comments-item-replay')
+	var $replay_comment_body = $('.admin-user-comment-item-all-comments-body')
 	$replay_comment.on('click',function () {
 		$(this).siblings().hide()
 		$(this).hide()
@@ -136,7 +137,7 @@ $(function () {
 			'<label class="sr-only">回复</label>' +
 			'<input type="text" class="form-control">' +
 			'</div>' +
-			'<button class="pull-right btn admin-btn">回复</button>' +
+			'<button class="pull-right btn admin-btn replay_now">回复</button>' +
 			'<button class="pull-right btn cancel-btn replay_cancel">取消</button>' +
 			'</div>')
 		$father.append($string)
@@ -147,6 +148,37 @@ $(function () {
 			var $father = $(this).parent('.replay_father')
 			$father.siblings().show()
 			$father.remove()
+		})
+		
+		//回复
+		var $replay_now = $('.replay_now')
+		$replay_now.on('click',function () {
+			var $father = $(this).parent('.replay_father')
+
+			var value = $father.find('input').val()
+			if(!value){
+				alert('请输入回复内容！')
+				return false
+			}
+			var $new_comment = $(`
+                            <div class="admin-user-comment-item-all-comments-item">
+                                <div class="admin-user-comment-item-all-comments-item-user clearfix">
+                                    <div class="pull-left">
+                                        <span class="admin-user-comment-item-all-comments-item-user-name"></span>
+                                    </div>
+                                    <div class="pull-right admin-user-comment-item-time"></div>
+                                </div>
+                                <div class="admin-user-comment-item-all-comments-item-content"></div>
+                            </div>
+							`)
+
+			$new_comment.find('.admin-user-comment-item-all-comments-item-user-name').html('商家：')
+			$new_comment.find('.admin-user-comment-item-all-comments-item-content').html(value)
+			$new_comment.find('.admin-user-comment-item-time').html('1分钟前')
+			$replay_comment_body.prepend($new_comment)
+			$father.siblings().show()
+			$father.remove()
+
 		})
 	})
 
@@ -237,4 +269,6 @@ $(function () {
 			return false
 		}
 	})
+
+
 })
