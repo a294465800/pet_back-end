@@ -1,5 +1,6 @@
 .webuploader-container {
 	position: relative;
+	padding-top: 10px;
 }
 .webuploader-element-invisible {
 	position: absolute !important;
