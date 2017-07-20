@@ -185,7 +185,7 @@ $(function () {
 			pick: {
 				id: '#shopImgPicker',
 				multiple: true,
-				innerHTML: '选择图片'
+				innerHTML: ''
 			},
 
 			// 只允许选择图片文件。

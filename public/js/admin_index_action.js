@@ -46,7 +46,7 @@ $(function () {
 
 		var $commodity_id = $('.commodity-id')
 		$all_commodity.find('input[name="all_commodity"]')[0].checked = checkbox
-		for(var i in $commodity_id){
+		for (var i in $commodity_id) {
 			$commodity_id[i].checked = checkbox
 		}
 
@@ -99,12 +99,12 @@ $(function () {
 	//评论展开事件
 	var $open_comment = $('.admin-user-comment-item-comment-num')
 
-	$open_comment.on('click',function () {
+	$open_comment.on('click', function () {
 		var openComment = $(this).parents('.admin-user-comment-item').find('.admin-user-comment-item-all-comments')
-		if(openComment.css('display') === 'block') {
+		if (openComment.css('display') === 'block') {
 			$(this).find('.comment-up').remove()
 			openComment.hide()
-		}else {
+		} else {
 			var $span = $('<span class="comment-up">收起</span>')
 			openComment.show()
 			$(this).append($span)
@@ -113,13 +113,13 @@ $(function () {
 
 	//阅读全文
 	var $article_all = $('.admin-user-comment-item-article-all')
-	$article_all.on('click',function () {
+	$article_all.on('click', function () {
 		var $father = $(this).siblings('.admin-user-comment-item-article-small')
 		console.log($father)
-		if($father.hasClass('admin-user-comment-item-article-big')){
+		if ($father.hasClass('admin-user-comment-item-article-big')) {
 			$father.removeClass('admin-user-comment-item-article-big')
 			$(this).html('阅读全文')
-		}else {
+		} else {
 			$father.addClass('admin-user-comment-item-article-big')
 			$(this).html('收起文章')
 		}
@@ -128,7 +128,7 @@ $(function () {
 	//动态回复评论
 	var $replay_comment = $('.admin-user-comment-item-all-comments-item-replay')
 	var $replay_comment_body = $('.admin-user-comment-item-all-comments-body')
-	$replay_comment.on('click',function () {
+	$replay_comment.on('click', function () {
 		$(this).siblings().hide()
 		$(this).hide()
 		var $father = $(this).parent('.admin-user-comment-item-all-comments-item-function')
@@ -144,19 +144,19 @@ $(function () {
 
 		//取消回复
 		var $replay_cancel = $('.replay_cancel')
-		$replay_cancel.on('click',function () {
+		$replay_cancel.on('click', function () {
 			var $father = $(this).parent('.replay_father')
 			$father.siblings().show()
 			$father.remove()
 		})
-		
+
 		//回复
 		var $replay_now = $('.replay_now')
-		$replay_now.on('click',function () {
+		$replay_now.on('click', function () {
 			var $father = $(this).parent('.replay_father')
 
 			var value = $father.find('input').val()
-			if(!value){
+			if (!value) {
 				alert('请输入回复内容！')
 				return false
 			}
@@ -183,11 +183,12 @@ $(function () {
 	})
 
 	//门店图片删除
-	var $shopCancel = $('#admin-img-shopImg-list').find('.admin-img-shopImg-item-cancel')
-	$shopCancel.on('click',function () {
+	var $img_list = $('#admin-img-shopImg-list')
+	var $shopCancel = $img_list.find('.admin-img-shopImg-item-cancel')
+	$shopCancel.on('click', function () {
 		console.log(1)
 		var $father = $(this).parents('.admin-img-shopImg-item')
-		if(confirm('确定删除该图片吗？')){
+		if (confirm('确定删除该图片吗？')) {
 			$father.remove()
 		}
 	})
@@ -203,16 +204,17 @@ $(function () {
 		var date = new Date(today)
 		date.setDate(parseInt(day) + num)
 		var y = date.getFullYear();
-		var m = date.getMonth()+1;
+		var m = date.getMonth() + 1;
 		var d = date.getDate();
 		m < 10 ? m = '0' + m : ''
 		d < 10 ? d = '0' + d : ''
-		$datePicker.val(y+"-"+m+"-"+d)
+		$datePicker.val(y + "-" + m + "-" + d)
 	}
-	$dateDown.on('click',function () {
+
+	$dateDown.on('click', function () {
 		dayChoose(-1)
 	})
-	$dateUp.on('click',function () {
+	$dateUp.on('click', function () {
 		dayChoose(1)
 	})
 
@@ -221,8 +223,8 @@ $(function () {
 	var $commodity_category_delete = $('.admin-commodity-category-delete')
 
 	$commodity_category_delete.on('click', function () {
-		if (confirm("确定删除该类别吗？")){
-		}else {
+		if (confirm("确定删除该类别吗？")) {
+		} else {
 			return false
 		}
 	})
@@ -238,9 +240,9 @@ $(function () {
 			div.addClass('hidden')
 			input.removeClass('hidden')
 			$(this).text('保存')
-		}else {
+		} else {
 			var value = input.val()
-			if (!value){
+			if (!value) {
 				alert('请输入修改后的类名！')
 				return false
 			}
@@ -250,25 +252,117 @@ $(function () {
 			$(this).text('修改')
 		}
 	})
-	
+
 	//评论管理回复
 	var $commodity_comment_reply = $('.commodity_comment_reply')
 
-	$commodity_comment_reply.on('click',function () {
+	$commodity_comment_reply.on('click', function () {
 		var $father = $(this).parents('.admin-commodity-comment-wrap')
 		var value = $father.find('input').val()
 		var $add_div = $father.find('.admin-commodity-comment-part')
-		if(!value){
+		if (!value) {
 			alert('请输入回复内容！')
 			return false
 		}
-		if(confirm("是否回复该用户？")){
-			var $add = $('<div class="shop_comment">商家：' + value +'</div>')
+		if (confirm("是否回复该用户？")) {
+			var $add = $('<div class="shop_comment">商家：' + value + '</div>')
 			$add_div.append($add)
-		}else {
+		} else {
 			return false
 		}
 	})
 
+	/*
+	 * 图片箭头查看
+	 * */
+	var $img_left = $('#img_left'),
+		$img_right = $('#img_right'),
+		$groupImg = $('.admin-img-shopImg-item'),
+		width = parseInt($($groupImg[0]).css('width'))
+
+	function imgMove(x) {
+		var $father_width = parseInt($('#admin-img-shopImg-list').css('width')),
+			$son_width = (width + 20) * ($('.admin-img-shopImg-item').length),
+			left = parseInt($($groupImg[0]).css('left')) + x
+
+		if (left < 0 && ($son_width + left + 200 < $father_width)) {
+			return false
+		}
+		if (left > 0) {
+			left = 0
+		}
+		$groupImg.animate({
+			left: left + 'px',
+		}, 400)
+		return true
+	}
+
+	$img_left.on('click', function () {
+		if (!imgMove(200)) {
+			return false
+		}
+	})
+
+	$img_right.on('click', function () {
+		if (!imgMove(-200)) {
+			return false
+		}
+	})
+
+	//鼠标滑动图片位置变化
+	function touchMove(x) {
+		var $father_width = parseInt($('#admin-img-shopImg-list').css('width')),
+			$son_width = (width + 20) * ($('.admin-img-shopImg-item').length),
+			newLeft = x + parseInt($($groupImg[0]).css('left'))
+
+		if (newLeft < 0 && newLeft < ($father_width - $son_width - 200)) {
+			return false
+		}
+		if (newLeft > 0) {
+			return false
+		}
+		$groupImg.css('left', newLeft + 'px')
+	}
+
+	var $img_move = $('#admin-img-wrap')
+
+	$img_move.mousedown(function (e) {
+		var x = e.pageX
+
+		e.stopPropagation()
+		$img_move.on('mousemove.a', function (event) {
+			var moveX = event.pageX,
+				realX = moveX-x,
+				limit = 20
+			if(realX > limit){
+				realX = limit
+			}else if(realX < -limit) {
+				realX = -limit
+			}
+			touchMove(realX)
+		})
+	})
+	$img_move.on('mouseout',function () {
+		$img_move.off('mousemove.a')
+	})
+	$img_move.mouseup(function (events) {
+		var newleft = parseInt($($groupImg[0]).css('left')) + 10,
+			$father_width = parseInt($('#admin-img-shopImg-list').css('width')),
+			$son_width = (width + 20) * ($('.admin-img-shopImg-item').length)
+		events.stopPropagation()
+		$img_move.off('mousemove.a')
+		if (newleft < 0 && ($son_width + newleft + 200 < $father_width)) {
+			return false
+		}
+		if (newleft > 0) {
+			return false
+		}
+		if( newleft > -50){
+			newleft = 0
+		}
+		$groupImg.animate({
+			left: newleft + 'px'
+		}, 500)
+	})
 
 })
