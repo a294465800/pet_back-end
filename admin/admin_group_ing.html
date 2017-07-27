@@ -117,20 +117,6 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <div class="admin-commodity-info-head">
-                <table class="table admin-commodity-info-head-table table-responsive">
-                    <thead>
-                    <tr>
-                        <td class="col-md-3">拼团商品</td>
-                        <td class="col-md-2">拼团价</td>
-                        <td class="col-md-1">参团人数</td>
-                        <td class="col-md-2">参团用户</td>
-                        <td class="col-md-2">开团时间</td>
-                        <td class="col-md-2">结束时间</td>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
             <div class="admin-commodity-info-function admin-commodity-info-function-order-way">
                 <label class="control-label">排序方式</label>
                 <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
@@ -141,23 +127,27 @@
             </div>
             <div class="admin-commodity-info-body">
                 <a class="admin-commodity-info-item group-link">
-                    <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">
-                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
-                            <span class="admin-commodity-group-success">
-                                <span class="glyphicon glyphicon-ok-sign"></span>
-                                <span>拼团成功</span>
-                            </span>
-                        </caption>
+                    <table class="table table-bordered table-responsive">
+                        <thead class="text-center">
+                        <tr>
+                            <td class="col-md-3 ">拼团商品</td>
+                            <td class="col-md-1">拼团价</td>
+                            <td class="col-md-1">参团人数</td>
+                            <td class="col-md-2">参团用户</td>
+                            <td class="col-md-2">开团时间</td>
+                            <td class="col-md-2">结束时间</td>
+                            <td class="col-md-1">状态</td>
+                        </tr>
+                        </thead>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="拼团商品">
                                 <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
                                 <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="拼团价">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            <td class="col-md-1 text-center" title="拼团价">
+                                <p class="admin-commodity-info-price">￥48.00</p>
+                                <p class="admin-commodity-info-exPrice">￥51.00</p>
                             </td>
                             <td class="col-md-1 text-center" title="参团人数">
                                 <span class="admin-commodity-info-people">2人</span>
@@ -167,28 +157,36 @@
                             </td>
                             <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
                             <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-1 text-center" title="状态">
+                                <span class="glyphicon glyphicon-ok-sign admin-commodity-group-success"></span>
+                                <span class="admin-commodity-group-success">拼团成功</span>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </a>
                 <a class="admin-commodity-info-item group-link">
-                    <table class="table table-responsive">
-                        <caption class="admin-commodity-info-item-id">
-                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
-                            <span class="admin-commodity-group-ing">
-                                <span class="glyphicon glyphicon-time"></span>
-                                <span>拼团中···</span>
-                            </span>
-                        </caption>
+                    <table class="table table-bordered table-responsive">
+                        <thead class="text-center">
+                        <tr>
+                            <td class="col-md-3 ">拼团商品</td>
+                            <td class="col-md-1">拼团价</td>
+                            <td class="col-md-1">参团人数</td>
+                            <td class="col-md-2">参团用户</td>
+                            <td class="col-md-2">开团时间</td>
+                            <td class="col-md-2">结束时间</td>
+                            <td class="col-md-1">状态</td>
+                        </tr>
+                        </thead>
                         <tbody>
                         <tr>
                             <td class="col-md-3 admin-commodity-info-name row" title="拼团商品">
                                 <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
                                 <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
                             </td>
-                            <td class="col-md-2 text-center" title="拼团价">
-                                <span class="admin-commodity-info-price">￥48.00</span>
-                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            <td class="col-md-1 text-center" title="拼团价">
+                                <p class="admin-commodity-info-price">￥48.00</p>
+                                <p class="admin-commodity-info-exPrice">￥51.00</p>
                             </td>
                             <td class="col-md-1 text-center" title="参团人数">
                                 <span class="admin-commodity-info-people">2人</span>
@@ -198,10 +196,15 @@
                             </td>
                             <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
                             <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-1 text-center" title="状态">
+                                <span class="glyphicon glyphicon-time admin-commodity-group-ing"></span>
+                                <span class="admin-commodity-group-ing">拼团中···</span>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </a>
+
             </div>
             <div class="container-fluid admin-commodity-info-page-container">
                 <nav aria-label="..." class="text-right admin-commodity-info-page">
