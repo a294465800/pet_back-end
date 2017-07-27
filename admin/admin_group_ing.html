@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宠物镇后台</title>
+    <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/admin_index.css">
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
+    <!--预留存放单页面css-->
+    <link rel="stylesheet" href="../public/build/webuploader/webuploader.css">
+    <link rel="stylesheet" href="../public/build/selectize/dist/css/selectize.css">
+    <!--/预留存放单页面css-->
+</head>
+<body>
+<!--导航-->
+<header class="admin-header clearfix">
+    <div class="container-fluid row">
+        <a class="admin-header-logo col-md-2 col-xs-3" href="../admin_index.html">宠物镇</a>
+        <div class="admin-header-function col-md-10 col-xs-9">
+            <div class="admin-header-function-common row">
+                <p class="col-md-9">你好，<span class="admin-header-user">店铺用户12345689</span>欢迎使用宠物镇后台。</p>
+                <div class="admin-header-a clearfix col-md-3">
+                    <a href="" class="pull-right">退出登录</a>
+                    <a href="" class="pull-right">宠物镇首页</a>
+                </div>
+            </div>
+
+            <!--预留位置，填充页面标题信息-->
+            <div class="row">
+                <div class="col-md-4 col-xs-4">
+                    <ol class="breadcrumb admin-breadcrumb">
+                        <li>订单管理</li>
+                        <li class="active">订单列表</li>
+                    </ol>
+                </div>
+                <div class="pull-right col-lg-4 col-md-5 col-xs-11 col-sm-7">
+                    <div class="form-group">
+                        <label class="sr-only" aria-label="search order"></label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label class="sr-only">select options</label>
+                                <select class="form-inline search-select" title="查询类别" id="orderSearch">
+                                    <option>id</option>
+                                    <option>狗狗</option>
+                                    <option>商品名称</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control admin-commodity-input">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn admin-btn">搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/预留位置，填充页面标题信息-->
+        </div>
+    </div>
+</header>
+<!--/导航-->
+
+<!--主体-->
+<section class="container-fluid admin-body row">
+
+    <!--导航菜单，所有页面相同-->
+    <div class="admin-navigation col-md-2 hidden-sm">
+        <ul class="admin-navigation-ul panel-group" id="admin-navigation-ul">
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#order-list">订单管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="order-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-order-info"><a href="admin_order_info.html" class="admin-navigation-a-btn">预约信息</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-order-handle"><a href="admin_order_handle.html" class="admin-navigation-a-btn">订单列表</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-order-comment"><a href="admin_order_comment.html" class="admin-navigation-a-btn">订单评论管理</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-order-used"><a href="admin_order_used.html" class="admin-navigation-a-btn">团购券核销</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#user-list">动态管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="user-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-user-add"><a href="admin_user_add.html" class="admin-navigation-a-btn">发布动态</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-user-comment"><a href="admin_user_comment.html" class="admin-navigation-a-btn">回复评论</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#commodity-list">商品管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="commodity-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-category"><a href="admin_commodity_category.html" class="admin-navigation-a-btn">商品类别管理</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-add"><a href="admin_commodity_add.html" class="admin-navigation-a-btn">发布新商品</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-commodity-list"><a href="admin_commodity_list.html" class="admin-navigation-a-btn">商品查询</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#group-list">拼团管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="group-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-group-list"><a href="admin_group_list.html" class="admin-navigation-a-btn">拼团查询</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-group-ing"><a href="admin_group_ing.html" class="admin-navigation-a-btn">正在开团订单</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#shop-list">店铺管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="shop-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-shopInfo"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#img-list">图片管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="img-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-shopImg"><a href="admin_img_shopImg.html" class="admin-navigation-a-btn">门店图片</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--/导航菜单，所有页面相同-->
+
+    <!--内容，所有页面不同-->
+    <div class="admin-content col-md-10">
+        <div class="container-fluid">
+            <!--从这里开始不同-->
+            <div class="admin-commodity-info-head">
+                <table class="table admin-commodity-info-head-table table-responsive">
+                    <thead>
+                    <tr>
+                        <td class="col-md-3">拼团商品</td>
+                        <td class="col-md-2">拼团价</td>
+                        <td class="col-md-1">参团人数</td>
+                        <td class="col-md-2">参团用户</td>
+                        <td class="col-md-2">开团时间</td>
+                        <td class="col-md-2">结束时间</td>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="admin-commodity-info-function admin-commodity-info-function-order-way">
+                <label class="control-label">排序方式</label>
+                <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="admin-commodity-info-body">
+                <a class="admin-commodity-info-item group-link">
+                    <table class="table table-responsive">
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-group-success">
+                                <span class="glyphicon glyphicon-ok-sign"></span>
+                                <span>拼团成功</span>
+                            </span>
+                        </caption>
+                        <tbody>
+                        <tr>
+                            <td class="col-md-3 admin-commodity-info-name row" title="拼团商品">
+                                <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
+                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
+                            </td>
+                            <td class="col-md-2 text-center" title="拼团价">
+                                <span class="admin-commodity-info-price">￥48.00</span>
+                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            </td>
+                            <td class="col-md-1 text-center" title="参团人数">
+                                <span class="admin-commodity-info-people">2人</span>
+                            </td>
+                            <td class="col-md-2 text-center" title="参团用户">
+                                <span class="admin-commodity-info-people">爱吃鱼的猫、小猪</span>
+                            </td>
+                            <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </a>
+                <a class="admin-commodity-info-item group-link">
+                    <table class="table table-responsive">
+                        <caption class="admin-commodity-info-item-id">
+                            <span class="admin-commodity-info-item-caption">商品编号：12345678910</span>
+                            <span class="admin-commodity-group-ing">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <span>拼团中···</span>
+                            </span>
+                        </caption>
+                        <tbody>
+                        <tr>
+                            <td class="col-md-3 admin-commodity-info-name row" title="拼团商品">
+                                <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
+                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
+                            </td>
+                            <td class="col-md-2 text-center" title="拼团价">
+                                <span class="admin-commodity-info-price">￥48.00</span>
+                                <span class="admin-commodity-info-exPrice">￥51.00</span>
+                            </td>
+                            <td class="col-md-1 text-center" title="参团人数">
+                                <span class="admin-commodity-info-people">2人</span>
+                            </td>
+                            <td class="col-md-2 text-center" title="参团用户">
+                                <span class="admin-commodity-info-people">爱吃鱼的猫、小猪</span>
+                            </td>
+                            <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </a>
+            </div>
+            <div class="container-fluid admin-commodity-info-page-container">
+                <nav aria-label="..." class="text-right admin-commodity-info-page">
+                    <ul class="pagination pagination-lg">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li class=""><a href="#">2 <span class="sr-only">2</span></a></li>
+                        <li class=""><a href="#">3 <span class="sr-only">3</span></a></li>
+                        <li class=""><span>... <span class="sr-only">...</span></span></li>
+                        <li class=""><a href="#">10 <span class="sr-only">10</span></a></li>
+                        <li ><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!--/从这里开始不同-->
+        </div>
+    </div>
+    <!--/内容，所有页面不同-->
+</section>
+<!--/主体-->
+
+<!--底部-->
+<footer class="container-fluid footer">Copyright © 2017 Sennki All Rights Reserved</footer>
+<!--/底部-->
+
+<!--bootstrap.js-->
+<script src="../public/build/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!--/bootstrap.js-->
+
+<!--admin的主js-->
+<script src="../public/js/admin_index_action.js"></script>
+<!--/admin的主js-->
+
+<!--预留存放单页面js-->
+<script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
+<script src="../public/js/upload_function.js"></script>
+<script src="../public/build/selectize/dist/js/standalone/selectize.min.js"></script>
+<script>
+	$(function () {
+		//网页初始化
+		var $group_list = $('#group-list')
+		$group_list.addClass('in')
+		$group_list.parent('.admin-navigation-li').addClass('active')
+		$group_list.find('#admin-navigation-function-group-ing').addClass('active')
+	})
+	$('#orderSearch').selectize({
+		create: true,
+		sortField: 'text'
+	});
+	$('#order_list_way').selectize({
+		create: true,
+		sortField: 'text'
+	});
+</script>
+<!--/预留存放单页面js-->
+</body>
+</html>
