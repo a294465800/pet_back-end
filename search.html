@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+  <title>检索面板</title>
+  <style type="text/css">
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+    }
+
+    li {
+      margin-left: 30px;
+    }
+
+    #container {
+      min-width: 603px;
+      min-height: 767px;
+    }
+  </style>
+  <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=V2BBZ-NBV35-P6ZI4-QXVQQ-VZY6F-MBFMQ"></script>
+  <script>
+    var map, searchService, citylocation, maker;
+
+    var init = function () {
+      var center = new qq.maps.LatLng(39.916527, 116.397128);
+      map = new qq.maps.Map(document.getElementById('container'), {
+        center: center,
+        zoom: 13
+      });
+
+      //设置城市信息查询服务
+      citylocation = new qq.maps.CityService();
+      //请求成功回调函数
+      citylocation.setComplete(function (result) {
+        map.setCenter(result.detail.latLng);
+      });
+      //请求失败回调函数
+      citylocation.setError(function () {
+        alert("出错了，请输入正确的经纬度！！！");
+      });
+      citylocation.searchLocalCity();
+
+      qq.maps.event.addListener(map, 'click', function (event) {
+        var latLng = event.latLng,
+          lat = latLng.getLat().toFixed(5),
+          lng = latLng.getLng().toFixed(5);
+        document.getElementById("latLng").innerHTML = lat + ',' + lng;
+      });
+
+      //调用Poi检索类
+      searchService = new qq.maps.SearchService({
+        panel: document.getElementById('infoDiv'),
+        map: map
+      });
+    }
+
+    function getResult() {
+      //位置检索
+      //设置searchRequest
+      var poiText = document.getElementById("poiText").value;
+      var regionText = document.getElementById("regionText").value;
+
+      searchService.setLocation(regionText);
+      searchService.search(poiText);
+
+    }
+  </script>
+</head>
+
+<body onload="init()">
+  <div id="container"></div>
+  <div id="latLng"></div>
+  <div>区域 <input type='text' placeholder='输入省、市名称，如广州市' id="regionText" /> 地点 <input type='text' placeholder="输入具体地点，如XX酒店" id="poiText"/>
+    <input type="button" value="Search" onclick="getResult()" />
+    <div id="pageIndexLabel" style="width: 100px;"></div>
+  </div>
+  <div style='width: 500px; height: 180px' id="infoDiv"></div>
+</body>
+
+</html>
