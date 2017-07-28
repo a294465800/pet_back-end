@@ -71,6 +71,13 @@
                 </ul>
             </li>
             <li class="admin-navigation-li">
+                <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#group-list">拼团管理</a>
+                <ul class="admin-navigation-ul-ul collapse" id="group-list">
+                    <li class="admin-navigation-function" id="admin-navigation-function-group-list"><a href="admin_group_list.html" class="admin-navigation-a-btn">拼团查询</a></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-group-ing"><a href="admin_group_ing.html" class="admin-navigation-a-btn">正在开团订单</a></li>
+                </ul>
+            </li>
+            <li class="admin-navigation-li">
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#shop-list">店铺管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="shop-list">
                     <li class="admin-navigation-function" id="admin-navigation-function-shopInfo"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li></li>
@@ -112,16 +119,14 @@
                     <div class="form-group">
                         <label for="commodity_title" class="control-label col-md-2">标题：</label>
                         <div class="col-md-10">
-                            <input id="commodity_title" name="commodity_title" type="text"
-                                   class="form-control admin-commodity-input" placeholder="商品标题">
+                            <input id="commodity_title" name="commodity_title" type="text" class="form-control admin-commodity-input" placeholder="商品标题">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="commodity_exPrice" class="control-label col-md-2">原价：</label>
                         <div class="col-md-10">
                             <div class="input-group">
-                                <input id="commodity_exPrice" name="commodity_exPrice" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
+                                <input id="commodity_exPrice" name="commodity_exPrice" type="text" class="form-control admin-commodity-input" placeholder="商品原价">
                                 <div class="input-group-addon">￥</div>
                             </div>
                         </div>
@@ -130,8 +135,7 @@
                         <label for="commodity_Price" class="control-label col-md-2">售价：</label>
                         <div class="col-md-10">
                             <div class="input-group">
-                                <input id="commodity_price" name="commodity_price" type="text"
-                                       class="form-control admin-commodity-input" placeholder="商品原价">
+                                <input id="commodity_price" name="commodity_price" type="text" class="form-control admin-commodity-input" placeholder="商品原价">
                                 <div class="input-group-addon">￥</div>
                             </div>
                         </div>
@@ -139,8 +143,7 @@
                     <div class="form-group">
                         <label for="commodity_desc" class="control-label col-md-2">产品说明：</label>
                         <div class="col-md-10">
-                            <textarea name="commodity_desc" id="commodity_desc" cols="30" rows="5"
-                                      class="form-control admin-commodity-textarea"></textarea>
+                            <textarea name="commodity_desc" id="commodity_desc" cols="30" rows="5" class="form-control admin-commodity-textarea"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
