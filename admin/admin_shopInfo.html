@@ -264,6 +264,7 @@
 				lat = latLng.getLat().toFixed(5),
 				lng = latLng.getLng().toFixed(5);
 			document.getElementById("latLng").innerHTML = '当前坐标为：' + lat + ',' + lng;
+			document.getElementById("search").value = lat + ',' + lng;
 	});
 
 		//调用Poi检索类

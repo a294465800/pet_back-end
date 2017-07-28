@@ -365,4 +365,47 @@ $(function () {
 		}, 500)
 	})
 
+
+	//拼团商品删除
+	var $groupDel = $('#groupDel')
+	$groupDel.on('click', function () {
+		var $delCommodity = $('.admin-commodity-info-item input:checked')
+		if ($delCommodity.length > 0) {
+			if (confirm('确定删除这些商品吗？')) {
+				$delCommodity.parents('.admin-commodity-info-item').remove()
+				alert('删除成功！')
+			}
+		} else {
+			alert('请先选择要删除的商品！')
+		}
+	})
+
+	//拼团商品下架
+	var $groupDown = $('#groupDown')
+	$groupDown.on('click', function () {
+		var $delGroup = $('.admin-commodity-info-item input:checked').parents('.admin-commodity-info-item')
+		if ($delGroup.length > 0) {
+			if (confirm('确定下架这些商品吗？')) {
+				$delGroup.find('.commodity_status').html('已下架')
+				alert('下架成功！')
+			}
+		} else {
+			alert('请先选择要下架的商品！')
+		}
+	})
+
+	//拼团商品上架
+	var $groupUp = $('#groupUp')
+	$groupUp.on('click', function () {
+		var $delGroup = $('.admin-commodity-info-item input:checked').parents('.admin-commodity-info-item')
+		if ($delGroup.length > 0) {
+			if (confirm('确定上架这些商品吗？')) {
+				$delGroup.find('.commodity_status').html('出售中')
+				alert('上架成功！')
+			}
+		} else {
+			alert('请先选择要上架的商品！')
+		}
+	})
+
 })
