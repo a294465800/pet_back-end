@@ -10,6 +10,8 @@
     <!--预留存放单页面css-->
     <link rel="stylesheet" href="../public/build/webuploader/webuploader.css">
     <link rel="stylesheet" href="../public/build/bootstrap-3.3.7-dist/switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="../public/build/calendar/css/dcalendar.picker.css">
+    <link rel="stylesheet" href="../public/build/calendar/css/zzsc.css">
     <!--/预留存放单页面css-->
 </head>
 <body>
@@ -183,6 +185,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6 no-padding commodity-add-margin">
+                                    <label for="startPicker">开始时间：</label>
+                                    <input type="button" id="startPicker" class="btn admin-commodity-add-btn" value="2017-07-06">
+                                </div>
+                                <div class="col-md-6 no-padding commodity-add-margin">
+                                    <label for="startPicker">结束时间：</label>
+                                    <input type="button" id="endPicker" class="btn admin-commodity-add-btn" value="2017-07-06">
+                                </div>
+                                <div class="col-md-12 no-padding commodity-add-margin">
+                                    <label for="group_last" class="control-label pull-left">持续时间：</label>
+                                    <div class="col-md-5 nopadding">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="24" id="group_last">
+                                            <div class="input-group-addon">小时</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,6 +257,7 @@
 <script src="../public/build/webuploader/webuploader.min.js" type="text/javascript"></script>
 <script src="../public/js/upload_function.js"></script>
 <script src="../public/build/bootstrap-3.3.7-dist/switch/bootstrap-switch.min.js"></script>
+<script src="../public/build/calendar/js/dcalendar.picker.js"></script>
 <script>
 	$(function () {
 		//网页初始化
@@ -245,6 +265,14 @@
 		$commodity_list.addClass('in')
 		$commodity_list.parent('.admin-navigation-li').addClass('active')
 		$commodity_list.find('#admin-navigation-function-commodity-add').addClass('active')
+
+		$('#startPicker').dcalendarpicker({
+			format:'yyyy-mm-dd'
+		});
+
+		$('#endPicker').dcalendarpicker({
+			format:'yyyy-mm-dd'
+		});
 
         //switch初始化
         var $cards = $('#cards'),
