@@ -31,27 +31,9 @@
                 <div class="col-md-4 col-xs-4">
                     <ol class="breadcrumb admin-breadcrumb">
                         <li>拼团管理</li>
-                        <li class="active">正在开团订单</li>
+                        <li>开团订单</li>
+                        <li class="active">商品编号： 1245154</li>
                     </ol>
-                </div>
-                <div class="pull-right col-lg-4 col-md-5 col-xs-11 col-sm-7">
-                    <div class="form-group">
-                        <label class="sr-only" aria-label="search order"></label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <label class="sr-only">select options</label>
-                                <select class="form-inline search-select" title="查询类别" id="orderSearch">
-                                    <option>id</option>
-                                    <option>狗狗</option>
-                                    <option>商品名称</option>
-                                </select>
-                            </div>
-                            <input type="text" class="form-control admin-commodity-input">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn admin-btn">搜索</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!--/预留位置，填充页面标题信息-->
@@ -100,7 +82,7 @@
             <li class="admin-navigation-li">
                 <a data-toggle="collapse" data-parent="#admin-navigation-ul" class="admin-navigation-title" href="#shop-list">店铺管理</a>
                 <ul class="admin-navigation-ul-ul collapse" id="shop-list">
-                    <li class="admin-navigation-function" id="admin-navigation-function-shopInfo"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li></li>
+                    <li class="admin-navigation-function" id="admin-navigation-function-shopInfo"><a href="admin_shopInfo.html" class="admin-navigation-a-btn">信息修改</a></li>
                 </ul>
             </li>
             <li class="admin-navigation-li">
@@ -117,28 +99,17 @@
     <div class="admin-content col-md-10">
         <div class="container-fluid">
             <!--从这里开始不同-->
-            <div class="admin-commodity-info-function admin-commodity-info-function-order-way clearfix">
-                <a class="btn admin-btn pull-left group-btn success">拼团成功</a>
-                <a class="btn admin-btn pull-left group-btn ing">拼团中</a>
-                <label class="control-label">排序方式</label>
-                <select class="admin-commodity-info-order" id="order_list_way" title="排序方式">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
-            </div>
             <div class="admin-commodity-info-body">
-                <a class="admin-commodity-info-item group-link" href="admin_group_one.html">
+                <div class="admin-commodity-info-item group-link">
                     <table class="table table-bordered table-responsive">
                         <thead class="text-center">
                         <tr>
                             <td class="col-md-3 text-left">商品编号：125415</td>
                             <td class="col-md-1">拼团价</td>
-                            <td class="col-md-1">参团人数</td>
-                            <td class="col-md-2">参团用户</td>
+                            <td class="col-md-2">人数限制</td>
                             <td class="col-md-2">开团时间</td>
                             <td class="col-md-2">结束时间</td>
-                            <td class="col-md-1">状态</td>
+                            <td class="col-md-2">状态</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -151,75 +122,51 @@
                                 <p class="admin-commodity-info-price">￥48.00</p>
                                 <p class="admin-commodity-info-exPrice">￥51.00</p>
                             </td>
-                            <td class="col-md-1 text-center" title="参团人数">
-                                <span class="admin-commodity-info-people">2人</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="参团用户">
-                                <span class="admin-commodity-info-people">爱吃鱼的猫、小猪</span>
-                            </td>
+                            <td class="col-md-2 text-center">3人团</td>
                             <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
                             <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-1 text-center" title="状态">
+                            <td class="col-md-2 text-center" title="状态">
                                 <span class="glyphicon glyphicon-ok-sign admin-commodity-group-success"></span>
                                 <span class="admin-commodity-group-success">拼团成功</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </a>
-                <a class="admin-commodity-info-item group-link">
-                    <table class="table table-bordered table-responsive">
-                        <thead class="text-center">
-                        <tr>
-                            <td class="col-md-3 text-left">商品编号：125415</td>
-                            <td class="col-md-1">拼团价</td>
-                            <td class="col-md-1">参团人数</td>
-                            <td class="col-md-2">参团用户</td>
-                            <td class="col-md-2">开团时间</td>
-                            <td class="col-md-2">结束时间</td>
-                            <td class="col-md-1">状态</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="col-md-3 admin-commodity-info-name row" title="拼团商品">
-                                <img class="admin-commodity-info-item-img col-md-3" src="https://dummyimage.com/600x400/000/fff" alt="商品">
-                                <span class="admin-commodity-info-item-title-wrap col-md-8"><a href="" class="admin-commodity-info-item-title-link">猫咪洗澡</a></span>
-                            </td>
-                            <td class="col-md-1 text-center" title="拼团价">
-                                <p class="admin-commodity-info-price">￥48.00</p>
-                                <p class="admin-commodity-info-exPrice">￥51.00</p>
-                            </td>
-                            <td class="col-md-1 text-center" title="参团人数">
-                                <span class="admin-commodity-info-people">2人</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="参团用户">
-                                <span class="admin-commodity-info-people">爱吃鱼的猫、小猪</span>
-                            </td>
-                            <td class="col-md-2 text-center" title="开团时间">2017-06-24&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-2 text-center" title="结束时间">2017-06-25&nbsp;&nbsp;17:30</td>
-                            <td class="col-md-1 text-center" title="状态">
-                                <span class="glyphicon glyphicon-time admin-commodity-group-ing"></span>
-                                <span class="admin-commodity-group-ing">拼团中···</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </a>
 
-            </div>
-            <div class="container-fluid admin-commodity-info-page-container">
-                <nav aria-label="..." class="text-right admin-commodity-info-page">
-                    <ul class="pagination pagination-lg">
-                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class=""><a href="#">2 <span class="sr-only">2</span></a></li>
-                        <li class=""><a href="#">3 <span class="sr-only">3</span></a></li>
-                        <li class=""><span>... <span class="sr-only">...</span></span></li>
-                        <li class=""><a href="#">10 <span class="sr-only">10</span></a></li>
-                        <li ><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                    </ul>
-                </nav>
+                                <!--拼团中-->
+                                <!--<span class="glyphicon glyphicon-time admin-commodity-group-ing"></span>-->
+                                <!--<span class="admin-commodity-group-ing">拼团中···</span>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="admin-commodity-info-item group-link">
+                    <table class="table table-bordered table-responsive">
+                        <caption class="group-one-caption">
+                            <span>用户信息</span>
+                        </caption>
+                        <thead class="text-center">
+                            <tr>
+                                <td class="col-md-3">用户名称</td>
+                                <td class="col-md-3">联系方式</td>
+                                <td class="col-md-3">付款</td>
+                                <td class="col-md-3">参团时间</td>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <td class="col-md-3" title="用户名称">爱吃鱼的猫</td>
+                                <td class="col-md-3" title="联系方式">13655697458</td>
+                                <td class="col-md-3 admin-commodity-info-price" title="付款">￥48.00</td>
+                                <td class="col-md-3" title="参团时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-3" title="用户名称">爱吃鱼的猫</td>
+                                <td class="col-md-3" title="联系方式">13655697458</td>
+                                <td class="col-md-3 admin-commodity-info-price" title="付款">￥48.00</td>
+                                <td class="col-md-3" title="参团时间">2017-06-24&nbsp;&nbsp;17:30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!--/从这里开始不同-->
         </div>
@@ -252,14 +199,6 @@
 		$group_list.parent('.admin-navigation-li').addClass('active')
 		$group_list.find('#admin-navigation-function-group-ing').addClass('active')
 	})
-	$('#orderSearch').selectize({
-		create: true,
-		sortField: 'text'
-	});
-	$('#order_list_way').selectize({
-		create: true,
-		sortField: 'text'
-	});
 </script>
 <!--/预留存放单页面js-->
 </body>
